@@ -3,7 +3,8 @@ from datetime import datetime
 import os
 
 space = "___"
-diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
+#diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
+diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs"
 data_hora_atual = datetime.now()
 formato_data_hora = "%Y-%m-%d_%H-%M-%S"
 timestamp = data_hora_atual.strftime(formato_data_hora)
