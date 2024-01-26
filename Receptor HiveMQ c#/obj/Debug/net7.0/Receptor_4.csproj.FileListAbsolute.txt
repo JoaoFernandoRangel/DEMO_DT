@@ -1,0 +1,153 @@
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\bin\Debug\net7.0\Receptor_4.exe
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\bin\Debug\net7.0\Receptor_4.deps.json
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\bin\Debug\net7.0\Receptor_4.runtimeconfig.json
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\bin\Debug\net7.0\Receptor_4.dll
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\bin\Debug\net7.0\Receptor_4.pdb
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\obj\Debug\net7.0\Receptor_4.csproj.AssemblyReference.cache
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\obj\Debug\net7.0\Receptor_4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\obj\Debug\net7.0\Receptor_4.AssemblyInfoInputs.cache
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\obj\Debug\net7.0\Receptor_4.AssemblyInfo.cs
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\obj\Debug\net7.0\Receptor_4.csproj.CoreCompileInputs.cache
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\obj\Debug\net7.0\Receptor_4.dll
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\obj\Debug\net7.0\refint\Receptor_4.dll
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\obj\Debug\net7.0\Receptor_4.pdb
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\obj\Debug\net7.0\Receptor_4.genruntimeconfig.cache
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\obj\Debug\net7.0\ref\Receptor_4.dll
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\bin\Debug\net7.0\M2Mqtt.Net.dll
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_4\obj\Debug\net7.0\Receptor_4.csproj.CopyComplete
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.AssemblyReference.cache
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfoInputs.cache
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfo.cs
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CoreCompileInputs.cache
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.dll
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\refint\Receptor_4.dll
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.pdb
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.exe
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.deps.json
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.runtimeconfig.json
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.dll
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.pdb
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\bin\Debug\net7.0\M2Mqtt.Net.dll
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CopyComplete
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.genruntimeconfig.cache
+C:\Users\Mateus\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\ref\Receptor_4.dll
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.exe
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.deps.json
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.runtimeconfig.json
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.dll
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.pdb
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\bin\Debug\net7.0\M2Mqtt.Net.dll
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfoInputs.cache
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfo.cs
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CopyComplete
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.dll
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\refint\Receptor_4.dll
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.pdb
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.genruntimeconfig.cache
+C:\Users\Usuario\Documents\PlatformIO\Projects\Receptor_HiveMQ _2\obj\Debug\net7.0\ref\Receptor_4.dll
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.exe
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.deps.json
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.runtimeconfig.json
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.dll
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.pdb
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\bin\Debug\net7.0\M2Mqtt.Net.dll
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfoInputs.cache
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfo.cs
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CopyComplete
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.dll
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\obj\Debug\net7.0\refint\Receptor_4.dll
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.pdb
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.genruntimeconfig.cache
+C:\Users\Usuario\Documents\Projetos\Receptor_HiveMQ _2\obj\Debug\net7.0\ref\Receptor_4.dll
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.AssemblyReference.cache
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfoInputs.cache
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfo.cs
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CoreCompileInputs.cache
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.dll
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\refint\Receptor_4.dll
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.pdb
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.exe
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.deps.json
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.runtimeconfig.json
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.dll
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.pdb
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\M2Mqtt.Net.dll
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CopyComplete
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.genruntimeconfig.cache
+C:\Users\Mateus\Downloads\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\ref\Receptor_4.dll
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.exe
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.deps.json
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.runtimeconfig.json
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.dll
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.pdb
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\M2Mqtt.Net.dll
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfoInputs.cache
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfo.cs
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CopyComplete
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.dll
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\refint\Receptor_4.dll
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.pdb
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.genruntimeconfig.cache
+C:\Users\Usuario\Documents\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\ref\Receptor_4.dll
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.exe
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.deps.json
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.runtimeconfig.json
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.dll
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.pdb
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\bin\Debug\net7.0\M2Mqtt.Net.dll
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.AssemblyReference.cache
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfoInputs.cache
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfo.cs
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CoreCompileInputs.cache
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CopyComplete
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.dll
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\refint\Receptor_4.dll
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.pdb
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.genruntimeconfig.cache
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\TCC_programs\Receptor_HiveMQ _2\obj\Debug\net7.0\ref\Receptor_4.dll
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.exe
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.deps.json
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.runtimeconfig.json
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.dll
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.pdb
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\bin\Debug\net7.0\M2Mqtt.Net.dll
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.AssemblyReference.cache
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfoInputs.cache
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfo.cs
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CoreCompileInputs.cache
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CopyComplete
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.dll
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\obj\Debug\net7.0\refint\Receptor_4.dll
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.pdb
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.genruntimeconfig.cache
+C:\Users\Mateus\Desktop\Mateus\Engenharia Elétrica\8 Semestre\Metodologia da Pesquisa\Projeto de Pesquisa\programas\Receptor_HiveMQ _2\obj\Debug\net7.0\ref\Receptor_4.dll
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.exe
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.deps.json
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.runtimeconfig.json
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.dll
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\bin\Debug\net7.0\Receptor_4.pdb
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\bin\Debug\net7.0\M2Mqtt.Net.dll
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfoInputs.cache
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.AssemblyInfo.cs
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.csproj.CopyComplete
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.dll
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\obj\Debug\net7.0\refint\Receptor_4.dll
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.pdb
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\obj\Debug\net7.0\Receptor_4.genruntimeconfig.cache
+C:\Users\Usuario\Documents\Programas_Pós TCC\Receptor_HiveMQ _2\obj\Debug\net7.0\ref\Receptor_4.dll
