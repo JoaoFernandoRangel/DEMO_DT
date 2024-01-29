@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "B7+MCYfceMUHRW0IwYnR0+RfSYXq0qI80C67CnQwrrE/4DhaYn9v2g9x/U95EsbeGCMGDLXa3Wkqq9gv4dBDcA==",
+  "dgSpecHash": "gwZrU3FY/lT4BwSzpEBJIueat5Wy0y/wN76n2x3a9t0KGrs32Fm54jD38uvODdbIdxLtF+YUPA55MeJZdgZqiA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\Programas_Pós TCC\\Receptor_HiveMQ _2\\Receptor_4.csproj",
+  "projectFilePath": "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Receptor HiveMQ c#\\Receptor_4.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\João Fernando Rangel\\.nuget\\packages\\m2mqtt\\4.3.0\\m2mqtt.4.3.0.nupkg.sha512"
   ],

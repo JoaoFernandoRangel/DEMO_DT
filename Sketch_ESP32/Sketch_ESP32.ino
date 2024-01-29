@@ -17,8 +17,8 @@ int sensores[8] = {14,16,17,18,22,23,19,21}; //{pist A Ini, pist A Fim, pist B I
 #define LED 9
 
 //Define informacoes da rede
-#define WLAN_SSID      "Bia 2"
-#define WLAN_PASS      "coisafacil"
+#define WLAN_SSID      "REDE"
+#define WLAN_PASS      "12345678"
 
 // Cria um WiFiClient class para utilizar no MQTT server.
 WiFiClientSecure client;
@@ -100,7 +100,7 @@ String getFormattedDate(NTPClient& ntp) {
   return formattedDate;
 }
 //Variaveis
-  int f = 10;                   // valor em hz
+  int f = 5;                   // valor em hz
   unsigned long time_ini;       // tempo em ms que comecou o segundo no timestamp
   unsigned long refTime = 0;    // tempo de inicio do loop
   bool ativar = true;          // indica se vai rodar a transmissao
@@ -169,8 +169,8 @@ void loop() {
 
     //Criacao da mensagem
       int valores[8];
-      String msg = "Piston__";
-      String msg2 = "Claw__"; 
+      String msg = "Pistoes__";
+      String msg2 = "Garra__"; 
     
     //Adicionando leituras dos sensores dos pistoes
     
@@ -197,8 +197,8 @@ void loop() {
     // Publishes messages to MQTT server
     if (!mqtt.connected()) reconnect();
     mqtt.loop();
-    if (!mqtt.publish("piston", msg.c_str())) Serial.println("Failed to publish");
-    if (!mqtt.publish("claw", msg2.c_str())) Serial.println("Failed to publish");
+    if (!mqtt.publish("pistao", msg.c_str())) Serial.println("Failed to publish");
+    if (!mqtt.publish("garra", msg2.c_str())) Serial.println("Failed to publish");
   }
   ntp.update();
 }
