@@ -100,13 +100,13 @@ String getFormattedDate(NTPClient& ntp) {
   return formattedDate;
 }
 //Variaveis
-  int f = 5;                   // valor em hz
+  int f = 2;                   // valor em hz
   unsigned long time_ini;       // tempo em ms que comecou o segundo no timestamp
   unsigned long refTime = 0;    // tempo de inicio do loop
   bool ativar = true;          // indica se vai rodar a transmissao
-  int garraMin = 400;             //valor minimo de abertura da garra
+  /*int garraMin = 400;             //valor minimo de abertura da garra
   int garraMax = 4095;           //valor maximo de abertura da garra
-
+*/
 
 
 
@@ -117,9 +117,9 @@ String getFormattedDate(NTPClient& ntp) {
 void setup() {
   //Iniciando  
   Serial.begin(19200);
-  Serial.println("aaaaa");
+  
   Serial.println("Inicio");
-  Serial.println("bbbb");  
+  
   /*pinMode(LED, OUTPUT);
   digitalWrite(LED, LOW);
   //wait(500,2);  
@@ -184,8 +184,9 @@ void loop() {
       msg += valores[i];
     }
     //Adicionando leitura da garra(potenciomentro)
-    float valor = (analogRead(POT) - garraMin) * 100 / (garraMax - garraMin);
-    msg2 += String(valor, 2);
+    //float valor = (analogRead(POT) - garraMin) * 100 / (garraMax - garraMin);
+    float valor = analogRead(POT);
+    msg2 += String(valor, 4);
     
     
     hora = ntp.getFormattedTime();

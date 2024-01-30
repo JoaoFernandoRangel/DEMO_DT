@@ -31,7 +31,7 @@ client.on_connect = on_connect
 client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
 client.username_pw_set("position_tracker", "Digital1")
 client.connect("dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud", 8883)
-topico = "garra-pos" 
+topico = "garra-POS" 
 
 
 class MyHandler(FileSystemEventHandler):
