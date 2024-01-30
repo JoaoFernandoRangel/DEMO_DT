@@ -44,5 +44,5 @@ while True:
     time.sleep(1)
     client.publish(topico3, string_pistao, 1)
     time.sleep(1)
-    print('publicado')
+    print('publicado  ')
 
