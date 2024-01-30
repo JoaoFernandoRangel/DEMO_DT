@@ -35,21 +35,25 @@ timestamp = data_hora_atual.strftime(formato_data_hora)
 diretorio_novo =  diretorio + "Logs__" + timestamp + ".txt"
 
 log = open(diretorio_novo, 'w+')
+
+while True:
+    pega_pose_e_escreve()
+
 # Obtenha a pose inicial
-pega_pose_e_escreve()
-dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
-pega_pose_e_escreve()
-dType.SetPTPCommonParamsEx(api,5,5,1)
-dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2])+50,(ponto_esteira[3]),1)
-pega_pose_e_escreve()
-dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
-pega_pose_e_escreve()
-dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1])+50,(ponto_esteira[2]),(ponto_esteira[3]),1)
-pega_pose_e_escreve()
-dType.SetPTPCmdEx(api,2,(ponto_esteira[0]+50),(ponto_esteira[1]),(ponto_esteira[2])+50,(ponto_esteira[3]),1)
-pega_pose_e_escreve()
-dType.SetPTPCmdEx(api,2,(ponto_esteira[0]+50),(ponto_esteira[1]),(ponto_esteira[2])+50,(ponto_esteira[3])+50,1)
-pega_pose_e_escreve()
+#pega_pose_e_escreve()
+#dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+#pega_pose_e_escreve()
+#dType.SetPTPCommonParamsEx(api,5,5,1)
+#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2])+50,(ponto_esteira[3]),1)
+#pega_pose_e_escreve()
+#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+#pega_pose_e_escreve()
+#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1])+50,(ponto_esteira[2]),(ponto_esteira[3]),1)
+#pega_pose_e_escreve()
+#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]+50),(ponto_esteira[1]),(ponto_esteira[2])+50,(ponto_esteira[3]),1)
+#pega_pose_e_escreve()
+#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]+50),(ponto_esteira[1]),(ponto_esteira[2])+50,(ponto_esteira[3])+50,1)
+#pega_pose_e_escreve()
 
 
 # Feche o arquivo de log

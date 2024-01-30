@@ -68,11 +68,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\Programas_Pós TCC\\Receptor_HiveMQ _2\\Receptor_4.csproj",
+      "projectUniqueName": "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Receptor HiveMQ c#\\Receptor_4.csproj",
       "projectName": "Receptor_4",
-      "projectPath": "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\Programas_Pós TCC\\Receptor_HiveMQ _2\\Receptor_4.csproj",
+      "projectPath": "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Receptor HiveMQ c#\\Receptor_4.csproj",
       "packagesPath": "C:\\Users\\João Fernando Rangel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\Programas_Pós TCC\\Receptor_HiveMQ _2\\obj\\",
+      "outputPath": "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Receptor HiveMQ c#\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\João Fernando Rangel\\AppData\\Roaming\\NuGet\\NuGet.Config"
