@@ -1,8 +1,8 @@
-#Eixo YYY
+#Eixo Y
 #70.5915    24.6074    xxxxxxxxxxxxxxx      -66,7842
-#Eixo XXX
+#Eixo X
 #184.1713   139,0746  xxxxxxxxxxxxxxx       51,907
-#Eixo ZZZ
+#Eixo Z
 #33,5399    46,7404                76,0925            
 
 eixoy = [70.5915, 24.6074, 0, -66.7842] #indo para a esquerda
