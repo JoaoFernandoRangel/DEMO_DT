@@ -51,3 +51,4 @@ except KeyboardInterrupt:
     print("Exiting the loop.")
     client.loop_stop()  # Stop the loop before exiting
     client.disconnect()
+

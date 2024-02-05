@@ -14,12 +14,14 @@ dif_y_2 = eixoy[3]-eixoy[1]
 dif_y_3 = eixoy[3]-eixoy[0]
 razao_y = dif_y_2/dif_y_1
 razao_y_1 = dif_y_3/dif_y_1
+print('eixo y')
 print(dif_y_1)
 print(dif_y_2)
 print(razao_y)
 print(razao_y_1)
 
 print("#######################")
+print('eixo x')
 dif_x_1 = eixox[1]-eixox[0]
 dif_x_2 = eixox[3]-eixox[1]
 dif_x_3 = eixox[3]-eixox[0]
@@ -31,6 +33,7 @@ print(razao_x)
 print(razao_x_1)
 
 print("#######################")
+print('eixo z')
 dif_z_1 = eixoz[1]-eixoz[0]
 dif_z_2 = eixoz[3]-eixoz[1]
 dif_z_3 = eixoz[3]-eixoz[0]
