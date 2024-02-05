@@ -1,0 +1,1242 @@
+import time
+from datetime import datetime
+import os
+import math
+
+def update(): 
+    pose_info_atual = dType.GetPose(api)  # Supondo que dType.GetPose(api) é uma função válida
+    # Verifique se houve uma mudança na pose_info
+    data_hora_atual = datetime.now()
+    formato_data_hora = "%H-%M-%S"
+    timestamp1 = data_hora_atual.strftime(formato_data_hora)
+    string = str(round(pose_info_atual[0], 3)) + space + str(round(pose_info_atual[1], 3)) + space + str(
+        round(pose_info_atual[2], 3)) + space + str(round(pose_info_atual[3], 3))
+    string_Print = str(timestamp1) + space + string + "\n"
+    log.write(string_Print)
+    
+    # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
+    novo_arquivo = diretorio + space + timestamp1 + space + string.replace(" ", "_") + ".txt"
+    with open(novo_arquivo, "w+") as x:
+        x.write(string_Print)
+        print('posicao escrita')
+    # Atualize a pose_info_anterior
+    
+  
+    time.sleep(1)
+	
+def update_abre():
+    data_hora_atual = datetime.now()
+    formato_data_hora = "%H-%M-%S"
+    timestamp1 = data_hora_atual.strftime(formato_data_hora)
+    string_garra = "abre-garra"
+    # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
+    novo_arquivo = diretorio + space + timestamp1 + space + string_garra + ".txt"
+    
+    with open(novo_arquivo, "w+") as x:
+        x.write(string_garra)
+        print('posicao escrita')
+
+    log.write(string_garra)  # Corrected indentation
+    time.sleep(1)
+	
+def update_fecha():
+    data_hora_atual = datetime.now()
+    formato_data_hora = "%H-%M-%S"
+    timestamp1 = data_hora_atual.strftime(formato_data_hora)
+    string_garra = "fecha-garra"
+    # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
+    novo_arquivo = diretorio + space + timestamp1 + space + string_garra + ".txt"
+    log.write(string_garra)
+    with open(novo_arquivo, "w+") as x:
+        x.write(string_garra)
+        print('posicao escrita')
+    time.sleep(1)
+	
+
+space = "___"
+diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
+#diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
+data_hora_atual = datetime.now()
+formato_data_hora = "%Y-%m-%d_%H-%M-%S"
+timestamp = data_hora_atual.strftime(formato_data_hora)
+diretorio_novo =  diretorio + "Logs__" + timestamp + ".txt"
+
+log = open(diretorio_novo, 'w+')
+
+
+
+
+
+#Magician
+def posicoes():
+  global ponto_esteira
+  global home
+  global montagem  
+  global tampa1
+  global tampa2
+  global tampa3
+  global tampa4
+  global tampa5
+  global tampa6
+  global tampa7
+  global tampa8
+  global peca1
+  global peca2
+  global peca3
+  global peca4
+  global peca5
+  global peca6
+  global peca7
+  global peca8
+  global azul1
+  global azul2
+  global azul3
+  global azul4
+  global azul5
+  global azul6
+  global azul7
+  global azul8
+  global vermelha1
+  global vermelha2
+  global vermelha3
+  global vermelha4
+  global vermelha5
+  global vermelha6
+  global vermelha7
+  global vermelha8	
+  global insere
+  global montagemtampa
+  global retirapronta
+
+ponto_esteira = [110.7396, -177.9776, 34.3824, 10.0828]
+home = [223.0752, 2.4736, 67.9859, 0]
+montagem = [287.3069 ,-1.8999 , 43.5196 , 43.8613]
+montagemtampa = [287.3069 ,-1.8999 , 62.5278 , 43.8613]
+tampa1 = [238.2570 ,69.6601 , 28.5715 , -80.7638]
+tampa2 = [238.2570 , 23.0042 , 28.5715 , -80.7638]
+tampa3 = [238.2570 , -24.5639 ,28.5715 , -80.7638]
+tampa4 = [238.2570 ,  -70.9319 , 28.5715 , -80.7638]
+tampa5 = [191.7751 , 70.2003  , 28.5715 , -80.7638]
+tampa6 = [191.7751, 23.0042, 28.5715 , -80.7638]
+tampa7 = [191.7751, -24.5639, 28.5715 , -80.7638]
+tampa8 = [191.7751,  -70.9319, 28.5715 , -80.7638]
+
+
+peca1 = [189.5151, 176.1579 , 35.0522 , -77.7504]
+peca2 = [190.6696 , 222.8666 , 35.0522 , -77.7504]
+peca3 = [142.9096 , 174.5800 , 35.0522 , -77.7504]
+peca4 = [143.2696  , 222.8666   ,35.0522 , -77.7504]
+peca5 = [97.8973 , 173.5261 ,35.0522 , -77.7504] 
+peca6 = [99.3135 , 221.4845, 35.0522 , -77.7504]
+peca7 = [53.5227, 174.0386 ,35.0522 , -77.7504]
+peca8 = [53.5227, 221.3917   ,35.0522 , -77.7504]
+
+
+azul1 = [-84.9073 , -167.7236, 31.0152 , -127.8766]
+azul2 = [-84.9073 , -194.2923 , 31.0152 , -127.8766]
+azul3 = [-84.9073 , -221.9639 , 31.0152 , -127.8766]
+azul4 = [-84.9073 , -249.4403 , 31.0152 , -127.8766]
+azul5 = [-115,7472 , -193.0422 , 31.0152 , -127.8766]
+azul6 = [-115,7472  , -204.68, 31.0152 , -127.8766]
+azul7 = [-115,7472  , -222.1283, 31.0152 , -127.8766]
+azul8 = [-115,7472  , -222.1283, 31.0152 , -127.8766]
+
+vermelha1 = [ -19.9619, -167.1253, 31.0152, -127.8766]
+vermelha2 = [ -19.9619, -193.5481, 31.0152, -127.8766]
+vermelha3 = [ -19.9619, -221.7029, 31.0152, -127.8766]
+vermelha4 = [ -19.9619, -247.8141, 31.0152, -127.8766]
+vermelha5 = [-48.4027 , -247.8141, 31.0152, -127.8766]
+vermelha6 = [-48.4207 , -222.0209, 31.0152, -127.8766]
+vermelha7 = [-48.4027 , -193.5075, 31.0152, -127.8766]
+vermelha8 = [-48.4027 ,-167.1253, 31.0152, -127.8766]
+
+insere = [289.70 ,-0.45, 57.81 , 0]
+retirapronta = [289.34 ,1.16, 26.66 , 0]
+
+
+
+
+def teste():
+
+	dType.SetIODOEx(api, 3, 1, 1)
+
+
+def abregarra():
+    dType.SetWAITCmdEx(api, 500, 1)
+    dType.SetEndEffectorGripperEx(api, 1, 0)
+    dType.SetWAITCmdEx(api, 500, 1)
+    update_abre()
+
+def fechagarra():
+    dType.SetWAITCmdEx(api, 500, 1)
+    dType.SetEndEffectorGripperEx(api, 1, 1)
+    dType.SetWAITCmdEx(api, 500 ,  1)
+    update_fecha()
+
+
+def configura():
+	global aprox
+	aprox = 30
+	dType.SetIOMultiplexingEx(api, 19, 3, 1)
+	dType.SetIOMultiplexingEx(api, 20, 3, 1)
+	dType.SetIOMultiplexingEx(api, 7, 3, 1)
+	dType.SetIOMultiplexingEx(api, 4, 3, 1)
+	dType.SetIOMultiplexingEx(api, 5, 3, 1)
+	dType.SetIOMultiplexingEx(api, 18, 1, 1)
+	dType.SetIOMultiplexingEx(api, 14, 1, 1)
+	dType.SetIOMultiplexingEx(api, 15, 1, 1)
+	dType.SetIOMultiplexingEx(api, 6, 1, 1)
+	dType.SetIOMultiplexingEx(api, 13, 1, 1)
+	dType.SetIOMultiplexingEx(api, 17, 1, 1)
+	dType.SetIOMultiplexingEx(api, 2, 1, 1)
+	dType.SetIOMultiplexingEx(api, 13, 1, 1)
+
+def alimenta():
+
+	dType.SetWAITCmdEx(api, 0.5, 1)
+	dType.SetIODOEx(api, 18, 1, 1)
+	dType.SetIODOEx(api, 17, 1, 1)
+
+	while (dType.GetIODI(api, 20)[0]) == 0:
+		print ("teste1")
+		dType.SetWAITCmdEx(api, 0.3, 1)
+
+	dType.SetIODOEx(api, 18, 0, 1)
+
+	while (dType.GetIODI(api, 19)[0]) == 0:
+		print ("teste2")
+		dType.SetWAITCmdEx(api, 0.3, 1)
+		
+
+def transporta ():
+
+	dType.SetIODOEx(api, 17, 1, 1)
+
+	while (dType.GetIODI(api, 5)[0]) == 0:
+		dType.SetWAITCmdEx(api, 0.5, 1)
+		
+	dType.SetIODOEx(api, 17, 0, 1)
+	dType.SetIODOEx(api, 14, 1, 1)
+	
+	while (dType.GetIODI(api, 7)[0]) == 0:
+		dType.SetWAITCmdEx(api, 0.5, 1)
+
+	dType.SetIODOEx(api, 14, 0, 1)
+	dType.SetWAITCmdEx(api, 3, 1)
+
+	dType.SetIODOEx(api, 6, 1, 1)
+	dType.SetIODOEx(api, 13, 1, 1)
+
+	dType.SetWAITCmdEx(api, 4000, 1)
+
+	dType.SetIODOEx(api, 6, 0, 1)
+	dType.SetIODOEx(api, 13, 0, 1)
+
+	dType.SetWAITCmdEx(api, 5, 1)
+	dType.SetIODOEx(api, 15, 1, 1)
+	
+	while (dType.GetIODI(api, 4)[0]) == 0:
+		dType.SetWAITCmdEx(api, 500, 1)
+
+	dType.SetIODOEx(api, 15, 0, 1)
+	dType.SetWAITCmdEx(api, 2000, 1)
+	dType.SetIODOEx(api, 2, 1, 1)
+
+	#dType.SetWAITCmdEx(api, 10, 1)
+	dType.SetWAITCmd(api, 5000, isQueued=1)
+
+	dType.SetIODOEx(api, 2, 0, 1)
+
+
+	
+
+def pegaesteira():
+    update()
+    dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,5,5,1)
+    dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
+    update()
+    fechagarra()
+    dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+    update()
+
+def colocamontagem():
+
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,5,5,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(montagem[0]),(montagem[1]),(montagem[2]),(montagem[3]),1)
+    update()
+    abregarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
+    update()
+
+def pegatampa1():
+
+    dType.SetPTPCmdEx(api,1,216.83,1.16,81.81,0,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,30,30,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(tampa1[0]),(tampa1[1]) ,(tampa1[2] + 20),(tampa1[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa1[0]),(tampa1[1]),(tampa1[2]),(tampa1[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa1[0]),(tampa1[1]) ,(tampa1[2] + aprox),(tampa1[3]),1)
+    update()
+
+def pegatampa2():
+    update()
+    dType.SetPTPCmdEx(api,1,216.83,1.16,81.81,0,1)	
+    update()
+    dType.SetPTPCommonParamsEx(api,30,30,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(tampa2[0]),(tampa2[1]) ,(tampa2[2] + 20),(tampa2[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa2[0]),(tampa2[1]),(tampa2[2]),(tampa2[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa2[0]),(tampa2[1]) ,(tampa2[2] + aprox),(tampa2[3]),1)
+    update()
+	
+def pegatampa3():
+    update()
+    dType.SetPTPCmdEx(api,1,216.83,1.16,81.81,0,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,30,30,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(tampa3[0]),(tampa3[1]) ,(tampa3[2] + 20),(tampa3[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa3[0]),(tampa3[1]),(tampa3[2]),(tampa3[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa3[0]),(tampa3[1]) ,(tampa3[2] + aprox),(tampa3[3]),1)
+    update()
+
+def pegatampa4():
+    update()
+    dType.SetPTPCmdEx(api,1,216.83,1.16,81.81,0,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,30,30,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(tampa4[0]),(tampa4[1]) ,(tampa4[2] + 20),(tampa4[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa4[0]),(tampa4[1]),(tampa4[2]),(tampa4[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa4[0]),(tampa4[1]) ,(tampa4[2] + aprox),(tampa4[3]),1)
+    update()
+	
+def pegatampa5():
+    update()
+    dType.SetPTPCmdEx(api,1,216.83,1.16,81.81,0,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,30,30,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(tampa5[0]),(tampa5[1]) ,(tampa5[2] + 20),(tampa5[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa5[0]),(tampa5[1]),(tampa5[2]),(tampa5[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa5[0]),(tampa5[1]) ,(tampa5[2] + aprox),(tampa5[3]),1)
+    update()
+
+def pegatampa6():
+    update()
+    dType.SetPTPCmdEx(api,1,216.83,1.16,81.81,0,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,30,30,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(tampa6[0]),(tampa6[1]) ,(tampa6[2] + 20),(tampa6[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa6[0]),(tampa6[1]),(tampa6[2]),(tampa6[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa6[0]),(tampa6[1]) ,(tampa6[2] + aprox),(tampa6[3]),1)
+    update()
+
+def pegatampa7():
+    update()
+    dType.SetPTPCmdEx(api,1,216.83,1.16,81.81,0,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,30,30,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(tampa7[0]),(tampa7[1]) ,(tampa7[2] + 20),(tampa7[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa7[0]),(tampa7[1]),(tampa7[2]),(tampa7[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa7[0]),(tampa7[1]) ,(tampa7[2] + aprox),(tampa7[3]),1)
+    update()
+
+
+def pegatampa8():
+    update()
+    dType.SetPTPCmdEx(api,1,216.83,1.16,81.81,0,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,30,30,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(tampa8[0]),(tampa8[1]) ,(tampa8[2] + 20),(tampa8[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa8[0]),(tampa8[1]),(tampa8[2]),(tampa8[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(tampa8[0]),(tampa8[1]) ,(tampa8[2] + aprox),(tampa8[3]),1)
+    update()
+
+	
+def montatampa():
+    update()
+    dType.SetPTPCmdEx(api,1,(montagemtampa[0]),(montagemtampa[1]),(montagemtampa[2] + aprox),(montagemtampa[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(montagemtampa[0]),(montagemtampa[1]),(montagemtampa[2]),(montagemtampa[3]),1)
+    update()
+    abregarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(montagemtampa[0]),(montagemtampa[1]),(montagemtampa[2] + aprox),(montagemtampa[3]),1)
+    update()
+
+
+def guarda1 ():
+	
+    dType.SetPTPCmdEx(api,1,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2]),(retirapronta[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,183.01,173.12,118,peca1[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca1[0]),(peca1[1]) ,118, (peca1[3]),1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca1[0]),(peca1[1]) ,(peca1[2]+10), (peca1[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(peca1[0]),(peca1[1]),(peca1[2]),(peca1[3]),1)
+    update()
+    abregarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(peca1[0]),(peca1[1]) ,80,(peca1[3]),1)
+    update()
+
+def guarda2 ():
+
+    dType.SetPTPCmdEx(api,1,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2]),(retirapronta[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,181.53,224.09,118,peca2[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca2[0]),(peca2[1]) ,118, (peca2[3]),1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca2[0]),(peca2[1]) ,(peca2[2]+10), (peca2[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(peca2[0]),(peca2[1]),(peca2[2]),(peca2[3]),1)
+    update()
+    abregarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(peca2[0]),(peca2[1]) ,80,(peca2[3]),1)
+    update()
+
+def guarda3 ():
+
+    dType.SetPTPCmdEx(api,1,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2]),(retirapronta[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,141.90,173.12,118,peca3[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca3[0]),(peca3[1]) ,118, (peca3[3]),1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca3[0]),(peca3[1]) ,(peca3[2]+10), (peca3[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(peca3[0]),(peca3[1]),(peca3[2]),(peca3[3]),1)
+    update()
+    abregarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(peca3[0]),(peca3[1]) ,80,(peca3[3]),1)
+    update()
+
+def guarda4 ():
+    update()
+    dType.SetPTPCmdEx(api,1,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2]),(retirapronta[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,139,224.09,118,peca4[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca4[0]),(peca4[1]) ,118, (peca4[3]),1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca4[0]),(peca4[1]) ,(peca4[2]+10), (peca4[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(peca4[0]),(peca4[1]),(peca4[2]),(peca4[3]),1)
+    update()
+    abregarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(peca4[0]),(peca4[1]) ,80,(peca4[3]),1)
+    update()
+
+def guarda5 ():
+
+    dType.SetPTPCmdEx(api,1,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2]),(retirapronta[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,87.37,177.87,118,peca5[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca5[0]),(peca5[1]) ,118, (peca5[3]),1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca5[0]),(peca5[1]) ,(peca5[2]+10), (peca5[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(peca5[0]),(peca5[1]),(peca5[2]),(peca5[3]),1)
+    update()
+    abregarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(peca5[0]),(peca5[1]) ,80,(peca5[3]),1)
+    update()
+
+def guarda6 ():
+
+    dType.SetPTPCmdEx(api,1,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2]),(retirapronta[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,90.14,224.09,118,peca6[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca6[0]),(peca6[1]) ,118, (peca6[3]),1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca6[0]),(peca6[1]) ,(peca6[2]+10), (peca6[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(peca6[0]),(peca6[1]),(peca6[2]),(peca6[3]),1)
+    update()
+    abregarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(peca6[0]),(peca6[1]) ,80,(peca6[3]),1)
+    update()
+
+
+
+def guarda7 ():
+    update()
+    dType.SetPTPCmdEx(api,1,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2]),(retirapronta[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,50.01,203,118,peca7[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca7[0]),(peca7[1]) ,118, (peca7[3]),1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca7[0]),(peca7[1]) ,(peca7[2]+10), (peca7[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(peca7[0]),(peca7[1]),(peca7[2]),(peca7[3]),1)
+    update()
+    abregarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(peca7[0]),(peca7[1]) ,80,(peca7[3]),1)
+    update()    
+def guarda8 ():
+	
+    update()
+    dType.SetPTPCmdEx(api,1,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2]),(retirapronta[3]),1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,46.75,224.09,118,peca8[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca8[0]),(peca8[1]) ,118, (peca8[3]),1)
+    update()
+    dType.SetPTPCmdEx(api,1,(peca8[0]),(peca8[1]) ,(peca8[2]+10), (peca8[3]),1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(peca8[0]),(peca8[1]),(peca8[2]),(peca8[3]),1)
+    update()
+    abregarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(peca8[0]),(peca8[1]) ,80,(peca8[3]),1)
+    update()
+
+
+
+
+def pegaazul1():
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,20,20,1)	
+    update()
+    dType.SetPTPCmdEx(api,1,(azul1[0]),(azul1[1]),(azul1[2] + 10),azul1[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,5,5,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(azul1[0]),(azul1[1]),(azul1[2]),azul1[3],1)
+    update()
+    fechagarra()	
+    update()
+    dType.SetPTPCmdEx(api,2,(azul1[0]),(azul1[1]),(azul1[2] + 15),azul1[3],1)	
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+def pegaazul2():
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(azul2[0]),(azul2[1]),(azul2[2] + 10),azul2[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(azul2[0]),(azul2[1]),(azul2[2]),azul2[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(azul2[0]),(azul2[1]),(azul2[2] + 15),azul2[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+def pegaazul3():
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(azul3[0]),(azul3[1]),(azul3[2] + 10),azul3[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(azul3[0]),(azul3[1]),(azul3[2]),azul3[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(azul3[0]),(azul3[1]),(azul3[2] + 15),azul3[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+	
+def pegaazul4():
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(azul4[0]),(azul4[1]),(azul4[2] + 10),azul4[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(azul4[0]),(azul4[1]),(azul4[2]),azul4[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(azul4[0]),(azul4[1]),(azul4[2] + 15),azul4[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+def pegaazul5():
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(azul5[0]),(azul5[1]),(azul5[2] + 10),azul5[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(azul5[0]),(azul5[1]),(azul5[2]),azul5[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(azul5[0]),(azul5[1]),(azul5[2] + 15),azul5[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+def pegaazul6():
+    update ()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(azul6[0]),(azul6[1]),(azul6[2] + 10),azul6[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(azul6[0]),(azul6[1]),(azul6[2]),azul6[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(azul6[0]),(azul6[1]),(azul6[2] + 15),azul6[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()    
+
+def pegaazul7():
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(azul7[0]),(azul7[1]),(azul7[2] + 10),azul7[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(azul7[0]),(azul7[1]),(azul7[2]),azul7[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(azul7[0]),(azul7[1]),(azul7[2] + 15),azul7[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+def pegaazul8():
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(azul8[0]),(azul8[1]),(azul8[2] + 10),azul8[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(azul8[0]),(azul8[1]),(azul8[2]),azul8[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(azul8[0]),(azul8[1]),(azul8[2] + 15),azul8[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+
+def pegavermelha1():
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(vermelha1[0]),(vermelha1[1]),(vermelha1[2] + 10),vermelha1[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha1[0]),(vermelha1[1]),(vermelha1[2]),vermelha1[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha1[0]),(vermelha1[1]),(vermelha1[2] + 10),vermelha1[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+def pegavermelha2():
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(vermelha2[0]),(vermelha2[1]),(vermelha2[2] + 10),vermelha2[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha2[0]),(vermelha2[1]),(vermelha2[2]),vermelha2[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha2[0]),(vermelha2[1]),(vermelha2[2] + 10),vermelha2[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+    
+
+def pegavermelha3():
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(vermelha3[0]),(vermelha3[1]),(vermelha3[2] + 10),vermelha3[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha3[0]),(vermelha3[1]),(vermelha3[2]),vermelha3[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha3[0]),(vermelha3[1]),(vermelha3[2] + 10),vermelha3[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+def pegavermelha4():
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(vermelha4[0]),(vermelha4[1]),(vermelha4[2] + 10),vermelha4[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha4[0]),(vermelha4[1]),(vermelha4[2]),vermelha4[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha4[0]),(vermelha4[1]),(vermelha4[2] + 10),vermelha4[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+def pegavermelha5():
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(vermelha5[0]),(vermelha5[1]),(vermelha5[2] + 10),vermelha5[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha5[0]),(vermelha5[1]),(vermelha5[2]),vermelha5[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha5[0]),(vermelha5[1]),(vermelha5[2] + 10),vermelha5[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+def pegavermelha6():
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(vermelha6[0]),(vermelha6[1]),(vermelha6[2] + 10),vermelha6[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha6[0]),(vermelha6[1]),(vermelha6[2]),vermelha6[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha6[0]),(vermelha6[1]),(vermelha6[2] + 10),vermelha6[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+
+def pegavermelha7():
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(vermelha7[0]),(vermelha7[1]),(vermelha7[2] + 10),vermelha7[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha7[0]),(vermelha7[1]),(vermelha7[2]),vermelha7[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha7[0]),(vermelha7[1]),(vermelha7[2] + 10),vermelha7[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+def pegavermelha8():
+    update()
+    dType.SetPTPCommonParamsEx(api,50,50,1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(vermelha8[0]),(vermelha8[1]),(vermelha8[2] + 10),vermelha8[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,10,10,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha8[0]),(vermelha8[1]),(vermelha8[2]),vermelha8[3],1)
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,2,(vermelha8[0]),(vermelha8[1]),(vermelha8[2] + 10),vermelha8[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+
+
+configura()
+posicoes()
+abregarra()
+
+dType.SetPTPCommonParamsEx(api,50,50,1)
+dType.SetPTPCmdEx(api,1,(home[0]),(home[1]),(home[2] + aprox),(home[3]),1)
+#########começo do programa	######
+###rotina peça 1###
+alimenta()
+
+transporta()
+
+pegaesteira()
+
+colocamontagem()
+
+pegaazul1()
+
+pegavermelha1()
+
+pegatampa1()
+
+montatampa()
+
+guarda1 ()
+
+###rotina peça 2###
+
+alimenta()
+
+transporta()
+
+pegaesteira()
+
+colocamontagem()
+
+pegaazul2()
+
+pegavermelha2()
+
+pegatampa2()
+
+montatampa()
+
+guarda2 ()
+
+###rotina peça 3###
+
+alimenta()
+
+transporta()
+
+pegaesteira()
+
+colocamontagem()
+
+pegaazul3()
+
+pegavermelha3()
+
+pegatampa3()
+
+montatampa()
+
+guarda3 ()
+
+###rotina peça 4###
+
+alimenta()
+
+transporta()
+
+pegaesteira()
+
+colocamontagem()
+
+pegaazul4()
+
+pegavermelha4()
+
+pegatampa4()
+
+montatampa()
+
+guarda4 ()
+
+###rotina peça 5###
+
+alimenta()
+
+transporta()
+
+pegaesteira()
+
+colocamontagem()
+
+pegaazul5()
+
+pegavermelha5()
+
+pegatampa5()
+
+montatampa()
+
+guarda5 ()
+
+###rotina peça 6###
+
+alimenta()
+
+transporta()
+
+pegaesteira()
+
+colocamontagem()
+
+pegaazul6()
+
+pegavermelha6()
+
+pegatampa6()
+
+montatampa()
+
+guarda6 ()
+
+###rotina peça 7###
+
+alimenta()
+
+transporta()
+
+pegaesteira()
+
+colocamontagem()
+
+pegaazul7()
+
+pegavermelha7()
+
+pegatampa7()
+
+montatampa()
+
+guarda7 ()
+
+###rotina peça 8###
+
+alimenta()
+
+transporta()
+
+pegaesteira()
+
+colocamontagem()
+
+pegaazul8()
+
+pegavermelha8()
+
+pegatampa8()
+
+montatampa()
+
+guarda8 ()
+
+
+
+dType.SetPTPCmdEx(api,1,(home[0]),(home[1]),(home[2] + aprox),(home[3]),1)
+
+dType.SetEndEffectorGripper(api, 0,  0, 1)
