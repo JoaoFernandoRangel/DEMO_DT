@@ -1,0 +1,58 @@
+import time
+from datetime import datetime
+import os
+import math
+
+def pega_pose_e_escreve(): 
+    pose_info_atual = dType.GetPose(api)  # Supondo que dType.GetPose(api) é uma função válida
+    # Verifique se houve uma mudança na pose_info
+    data_hora_atual = datetime.now()
+    formato_data_hora = "%H-%M-%S"
+    timestamp1 = data_hora_atual.strftime(formato_data_hora)
+    string = str(round(pose_info_atual[0], 3)) + space + str(round(pose_info_atual[1], 3)) + space + str(
+        round(pose_info_atual[2], 3)) + space + str(round(pose_info_atual[3], 3))
+    string_Print = str(timestamp1) + space + string + "\n"
+    log.write(string_Print)
+    #Hora-Minuto-Segundos__x__y__z__r
+    # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
+    novo_arquivo = diretorio + space + timestamp1 + space + string.replace(" ", "_") + ".txt"
+    with open(novo_arquivo, "w+") as x:
+        x.write(string_Print)
+        print('posicao escrita')
+    # Atualize a pose_info_anterior
+    
+
+    time.sleep(1)
+
+space = "__"
+#diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
+diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
+data_hora_atual = datetime.now()
+formato_data_hora = "%Y-%m-%d_%H-%M-%S"
+timestamp = data_hora_atual.strftime(formato_data_hora)
+diretorio_novo =  diretorio + "Logs__" + timestamp + ".txt"
+
+log = open(diretorio_novo, 'w+')
+
+while True:
+    pega_pose_e_escreve()
+
+# Obtenha a pose inicial
+#pega_pose_e_escreve()
+#dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+#pega_pose_e_escreve()
+#dType.SetPTPCommonParamsEx(api,5,5,1)
+#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2])+50,(ponto_esteira[3]),1)
+#pega_pose_e_escreve()
+#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+#pega_pose_e_escreve()
+#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1])+50,(ponto_esteira[2]),(ponto_esteira[3]),1)
+#pega_pose_e_escreve()
+#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]+50),(ponto_esteira[1]),(ponto_esteira[2])+50,(ponto_esteira[3]),1)
+#pega_pose_e_escreve()
+#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]+50),(ponto_esteira[1]),(ponto_esteira[2])+50,(ponto_esteira[3])+50,1)
+#pega_pose_e_escreve()
+
+
+# Feche o arquivo de log
+log.close()

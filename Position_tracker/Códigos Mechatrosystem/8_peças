@@ -54,8 +54,8 @@ def update_fecha():
 	
 
 space = "___"
-diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
-#diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
+#diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
+diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
 data_hora_atual = datetime.now()
 formato_data_hora = "%Y-%m-%d_%H-%M-%S"
 timestamp = data_hora_atual.strftime(formato_data_hora)
@@ -108,10 +108,13 @@ def posicoes():
   global montagemtampa
   global retirapronta
 
-ponto_esteira = [110.7396, -177.9776, 34.3824, 10.0828]
+ponto_esteira = [110.4975, -173.3186, 31.5026, -84]
 home = [223.0752, 2.4736, 67.9859, 0]
-montagem = [287.3069 ,-1.8999 , 43.5196 , 43.8613]
-montagemtampa = [287.3069 ,-1.8999 , 62.5278 , 43.8613]
+montagem = [282.6386 ,2.3481 , 49.2573 , 0]
+montagemtampa = [282.6386 ,2.3481 , 58.2095 , 0]
+
+
+
 tampa1 = [238.2570 ,69.6601 , 28.5715 , -80.7638]
 tampa2 = [238.2570 , 23.0042 , 28.5715 , -80.7638]
 tampa3 = [238.2570 , -24.5639 ,28.5715 , -80.7638]
@@ -150,8 +153,8 @@ vermelha6 = [-48.4207 , -222.0209, 31.0152, -127.8766]
 vermelha7 = [-48.4027 , -193.5075, 31.0152, -127.8766]
 vermelha8 = [-48.4027 ,-167.1253, 31.0152, -127.8766]
 
-insere = [289.70 ,-0.45, 57.81 , 0]
-retirapronta = [289.34 ,1.16, 26.66 , 0]
+insere = [282.9474 ,1.8, 67.6 , 2.34]
+retirapronta = [283.9509 ,2.5633, 33.5151 , 0]
 
 
 
@@ -252,28 +255,28 @@ def transporta ():
 
 def pegaesteira():
     update()
-    dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+    dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
     update()
     dType.SetPTPCommonParamsEx(api,5,5,1)
-    dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
+    dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
     update()
     fechagarra()
-    dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+    dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
     update()
 
 def colocamontagem():
 
     dType.SetPTPCommonParamsEx(api,50,50,1)
     update()
-    dType.SetPTPCmdEx(api,1,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
+    dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
     update()
     dType.SetPTPCommonParamsEx(api,5,5,1)
     update()
-    dType.SetPTPCmdEx(api,2,(montagem[0]),(montagem[1]),(montagem[2]),(montagem[3]),1)
+    dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2]),(montagem[3]),1)
     update()
     abregarra()
     update()
-    dType.SetPTPCmdEx(api,2,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
+    dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
     update()
 
 def pegatampa1():
