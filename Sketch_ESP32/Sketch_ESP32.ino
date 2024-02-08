@@ -159,7 +159,7 @@ void setup() {
    ntp.setTimeOffset(-10800);//corrige para fuso horário     
 }
 String hora,date;
-String space = "__";
+String space = "%%";
 
 
 void loop() {
@@ -169,9 +169,12 @@ void loop() {
 
     //Criacao da mensagem
       int valores[8];
-      String msg = "Pistoes__";
-      String msg2 = "Garra__"; 
-    
+      hora = ntp.getFormattedTime();
+      String formattedDate = getFormattedDate(ntp);
+      String msg = "%%PISTAO%%";
+      String msg2 = "%%GARRA%%"; 
+      msg += formattedDate + hora + space;//pistoes
+      msg2 += hora + space + formattedDate + space;
     //Adicionando leituras dos sensores dos pistoes
     
     for(int i = 0; i<8; i++)
@@ -185,15 +188,11 @@ void loop() {
     }
     //Adicionando leitura da garra(potenciomentro)
     //float valor = (analogRead(POT) - garraMin) * 100 / (garraMax - garraMin);
-    float valor = analogRead(POT);
-    msg2 += String(valor, 4);
+    int valor = analogRead(POT);
+    msg2 += String(valor);
     
     
-    hora = ntp.getFormattedTime();
-    String formattedDate = getFormattedDate(ntp);
-
-    msg += space + hora + space + formattedDate;
-    msg2 += space + hora + space + formattedDate;
+    
 
     // Publishes messages to MQTT server
     if (!mqtt.connected()) reconnect();

@@ -53,9 +53,9 @@ def update_fecha():
     time.sleep(1)
 	
 
-space = "___"
-diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
-#diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
+space = "%%"
+#diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
+diretorio = "C://Users//João Fernando Rangel//Desktop//Digital Twin//DEMO_DT//Position_tracker//Logs//log"
 data_hora_atual = datetime.now()
 formato_data_hora = "%Y-%m-%d_%H-%M-%S"
 timestamp = data_hora_atual.strftime(formato_data_hora)
@@ -189,30 +189,30 @@ def transporta ():
 
 def pegaesteira():
 	update()
-	dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+	dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
 	update()
 	dType.SetPTPCommonParamsEx(api,5,5,1)
 	update()
-	dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
+	dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
 	update()
 	fechagarra()
 	update()
-	dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+	dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
 	update()
 
 def colocamontagem():
 
 	dType.SetPTPCommonParamsEx(api,50,50,1)
 	update()
-	dType.SetPTPCmdEx(api,1,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
+	dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
 	update()
 	dType.SetPTPCommonParamsEx(api,5,5,1)
 	update()
-	dType.SetPTPCmdEx(api,2,(montagem[0]),(montagem[1]),(montagem[2]),(montagem[3]),1)
+	dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2]),(montagem[3]),1)
 	update()
 	abregarra()
 	update()
-	dType.SetPTPCmdEx(api,2,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
+	dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
 	update()
 
 def pegatampa1():
@@ -221,44 +221,44 @@ def pegatampa1():
 	update()
 	dType.SetPTPCommonParamsEx(api,30,30,1)
 	update()
-	dType.SetPTPCmdEx(api,1,(tampa1[0]),(tampa1[1]) ,(tampa1[2] + 20),(tampa1[3]),1)
+	dType.SetPTPCmdEx(api,0,(tampa1[0]),(tampa1[1]) ,(tampa1[2] + 20),(tampa1[3]),1)
 	update()
 	dType.SetPTPCommonParamsEx(api,10,10,1)
 	update()
-	dType.SetPTPCmdEx(api,2,(tampa1[0]),(tampa1[1]),(tampa1[2]),(tampa1[3]),1)
+	dType.SetPTPCmdEx(api,0,(tampa1[0]),(tampa1[1]),(tampa1[2]),(tampa1[3]),1)
 	update()
 	fechagarra()
 	update()
-	dType.SetPTPCmdEx(api,2,(tampa1[0]),(tampa1[1]) ,(tampa1[2] + aprox),(tampa1[3]),1)
+	dType.SetPTPCmdEx(api,0,(tampa1[0]),(tampa1[1]) ,(tampa1[2] + aprox),(tampa1[3]),1)
 	update()
 	
 	
 
 def montatampa():
 	update()
-	dType.SetPTPCmdEx(api,1,(montagemtampa[0]),(montagemtampa[1]),(montagemtampa[2] + aprox),(montagemtampa[3]),1)
+	dType.SetPTPCmdEx(api,0,(montagemtampa[0]),(montagemtampa[1]),(montagemtampa[2] + aprox),(montagemtampa[3]),1)
 	update()
 	dType.SetPTPCommonParamsEx(api,10,10,1)
 	update()
-	dType.SetPTPCmdEx(api,2,(montagemtampa[0]),(montagemtampa[1]),(montagemtampa[2]),(montagemtampa[3]),1)
+	dType.SetPTPCmdEx(api,0,(montagemtampa[0]),(montagemtampa[1]),(montagemtampa[2]),(montagemtampa[3]),1)
 	update()
 	abregarra()
 	update()
-	dType.SetPTPCmdEx(api,2,(montagemtampa[0]),(montagemtampa[1]),(montagemtampa[2] + aprox),(montagemtampa[3]),1)
+	dType.SetPTPCmdEx(api,0,(montagemtampa[0]),(montagemtampa[1]),(montagemtampa[2] + aprox),(montagemtampa[3]),1)
 	update()
 
 
 def guarda ():
 	update()
-	dType.SetPTPCmdEx(api,1,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+	dType.SetPTPCmdEx(api,0,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
 	update()
 	dType.SetPTPCommonParamsEx(api,10,10,1)
 	update()
-	dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2]),(retirapronta[3]),1)
+	dType.SetPTPCmdEx(api,0,(retirapronta[0]),(retirapronta[1]),(retirapronta[2]),(retirapronta[3]),1)
 	update()
 	fechagarra()
 	update()
-	dType.SetPTPCmdEx(api,2,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+	dType.SetPTPCmdEx(api,0,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
 	update()
 
 	
@@ -266,45 +266,45 @@ def guarda ():
 	update()
 	dType.SetPTPCommonParamsEx(api,50,50,1)
 	update()
-	dType.SetPTPCmdEx(api,1,129,203,118,peca1[3],1)
+	dType.SetPTPCmdEx(api,0,129,203,118,peca1[3],1)
    
 	update()
-	dType.SetPTPCmdEx(api,1,(peca1[0]),(peca1[1]) ,118, (peca1[3]),1)
+	dType.SetPTPCmdEx(api,0,(peca1[0]),(peca1[1]) ,118, (peca1[3]),1)
 	update()
-	dType.SetPTPCmdEx(api,1,(peca1[0]),(peca1[1]) ,(peca1[2]+10), (peca1[3]),1)
+	dType.SetPTPCmdEx(api,0,(peca1[0]),(peca1[1]) ,(peca1[2]+10), (peca1[3]),1)
 	update()
 	dType.SetPTPCommonParamsEx(api,10,10,1)
 	update()
-	dType.SetPTPCmdEx(api,2,(peca1[0]),(peca1[1]),(peca1[2]),(peca1[3]),1)
+	dType.SetPTPCmdEx(api,0,(peca1[0]),(peca1[1]),(peca1[2]),(peca1[3]),1)
 	update()
 	abregarra()
 	update()
-	dType.SetPTPCmdEx(api,2,(peca1[0]),(peca1[1]) ,80,(peca1[3]),1)
+	dType.SetPTPCmdEx(api,0,(peca1[0]),(peca1[1]) ,80,(peca1[3]),1)
 	
 	
 	
 
 def pegaazul1():
 	update()
-	dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+	dType.SetPTPCmdEx(api,0 ,35 ,-186.3 ,94, -69 ,1)
 	update()
 	dType.SetPTPCommonParamsEx(api,50,50,1)
 	update()
-	dType.SetPTPCmdEx(api,1,(azul1[0]),(azul1[1]),(azul1[2] + 10),azul1[3],1)
+	dType.SetPTPCmdEx(api,0,(azul1[0]),(azul1[1]),(azul1[2] + 10),azul1[3],1)
 	update()
 	dType.SetPTPCommonParamsEx(api,10,10,1)
 	update()
-	dType.SetPTPCmdEx(api,2,(azul1[0]),(azul1[1]),(azul1[2]),azul1[3],1)
+	dType.SetPTPCmdEx(api,0,(azul1[0]),(azul1[1]),(azul1[2]),azul1[3],1)
 	update()
 	fechagarra()
 	update()
-	dType.SetPTPCmdEx(api,2,(azul1[0]),(azul1[1]),(azul1[2] + 15),azul1[3],1)
+	dType.SetPTPCmdEx(api,0,(azul1[0]),(azul1[1]),(azul1[2] + 15),azul1[3],1)
 	update()
-	dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+	dType.SetPTPCmdEx(api,0 ,35 ,-186.3 ,94, -69 ,1)
 	update()
-	dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+	dType.SetPTPCmdEx(api,0,home[0],home[1],home[2],home[3],1)
 	update()
-	dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+	dType.SetPTPCmdEx(api,0,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
 	update()
 	abregarra()
 	update()
@@ -313,23 +313,23 @@ def pegavermelha1():
 	update()
 	dType.SetPTPCommonParamsEx(api,50,50,1)
 	update()
-	dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+	dType.SetPTPCmdEx(api,0 ,35 ,-186.3 ,94, -69 ,1)
 	update()
-	dType.SetPTPCmdEx(api,1,(vermelha1[0]),(vermelha1[1]),(vermelha1[2] + 10),vermelha1[3],1)
+	dType.SetPTPCmdEx(api,0,(vermelha1[0]),(vermelha1[1]),(vermelha1[2] + 10),vermelha1[3],1)
 	update()
 	dType.SetPTPCommonParamsEx(api,10,10,1)
 	update()
-	dType.SetPTPCmdEx(api,2,(vermelha1[0]),(vermelha1[1]),(vermelha1[2]),vermelha1[3],1)
+	dType.SetPTPCmdEx(api,0,(vermelha1[0]),(vermelha1[1]),(vermelha1[2]),vermelha1[3],1)
 	update()
 	fechagarra()
 	update()
-	dType.SetPTPCmdEx(api,2,(vermelha1[0]),(vermelha1[1]),(vermelha1[2] + 10),vermelha1[3],1)
+	dType.SetPTPCmdEx(api,0,(vermelha1[0]),(vermelha1[1]),(vermelha1[2] + 10),vermelha1[3],1)
 	update()
-	dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+	dType.SetPTPCmdEx(api,0 ,35 ,-186.3 ,94, -69 ,1)
 	update()
-	dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
+	dType.SetPTPCmdEx(api,0,home[0],home[1],home[2],home[3],1)
 	update()
-	dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+	dType.SetPTPCmdEx(api,0,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
 	update()
 	abregarra()
 	update()
@@ -347,7 +347,7 @@ posicoes()
 abregarra()
 
 dType.SetPTPCommonParamsEx(api,50,50,1)
-dType.SetPTPCmdEx(api,1,(home[0]),(home[1]),(home[2] + aprox),(home[3]),1)
+dType.SetPTPCmdEx(api,0,(home[0]),(home[1]),(home[2] + aprox),(home[3]),1)
 
 
 
@@ -369,7 +369,6 @@ pegatampa1()
 
 montatampa()
 guarda ()
-
-dType.SetPTPCmdEx(api,1,(home[0]),(home[1]),(home[2] + aprox),(home[3]),1)
+dType.SetPTPCmdEx(api,0,(home[0]),(home[1]),(home[2] + aprox),(home[3]),1)
 
 dType.SetEndEffectorGripper(api, 0,  0, 1)
