@@ -100,12 +100,12 @@ String getFormattedDate(NTPClient& ntp) {
   return formattedDate;
 }
 //Variaveis
-  int f = 2;                   // valor em hz
-  unsigned long time_ini;       // tempo em ms que comecou o segundo no timestamp
-  unsigned long refTime = 0;    // tempo de inicio do loop
+  int f = 3;                   // valor em hz
+  unsigned long time_ini;      // tempo em ms que comecou o segundo no timestamp
+  unsigned long refTime = 0;   // tempo de inicio do loop
   bool ativar = true;          // indica se vai rodar a transmissao
-  /*int garraMin = 400;             //valor minimo de abertura da garra
-  int garraMax = 4095;           //valor maximo de abertura da garra
+  /*int garraMin = 400;        //valor minimo de abertura da garra
+  int garraMax = 4095;         //valor maximo de abertura da garra
 */
 
 
