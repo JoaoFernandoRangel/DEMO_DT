@@ -45,7 +45,7 @@ class MyHandler(FileSystemEventHandler):
             return
         elif event.src_path.endswith(".txt"):
             print(f"Novo arquivo criado: {event.src_path}")
-            str_pub = event.src_path.replace("C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log___","")
+            str_pub = event.src_path.replace("C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
             str_pub = str_pub.replace(".txt", "")
             #str_pub = str_pub.replace("-", ":")
             client.publish(topico, str_pub, 1)
@@ -64,7 +64,7 @@ def delete_files_with_prefix(folder, prefix):
 def on_press(key):
     if key == keyboard.Key.esc:
         print("Tecla Esc pressionada. Removendo arquivos e encerrando o programa.")
-        delete_files_with_prefix(pasta_vigilancia, "log___")
+        delete_files_with_prefix(pasta_vigilancia, "log%%")
         client.publish(topico, "Movimentação terminada", 1)
         observer.stop()
 

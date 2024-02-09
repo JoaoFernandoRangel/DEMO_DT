@@ -53,7 +53,7 @@ def update_fecha():
     time.sleep(1)
 	
 
-space = "___"
+space = "%%"
 #diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
 diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
 data_hora_atual = datetime.now()
@@ -109,8 +109,8 @@ def posicoes():
   global retirapronta
 
 ponto_esteira = [110.4975, -173.3186, 31.5026, -84]
-home = [223.0752, 2.4736, 67.9859, 0]
-montagem = [282.6386 ,2.3481 , 49.2573 , 0]
+home = [223.0752, 0, 40, 0]
+montagem = [282.6386 ,2.3481 , 40.2573 , 0]
 montagemtampa = [282.6386 ,2.3481 , 58.2095 , 0]
 
 
@@ -258,10 +258,10 @@ def pegaesteira():
     dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
     update()
     dType.SetPTPCommonParamsEx(api,5,5,1)
-    dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
+    dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
     update()
     fechagarra()
-    dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+    dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
     update()
 
 def colocamontagem():
@@ -272,11 +272,11 @@ def colocamontagem():
     update()
     dType.SetPTPCommonParamsEx(api,5,5,1)
     update()
-    dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2]),(montagem[3]),1)
+    dType.SetPTPCmdEx(api,1,(montagem[0]),(montagem[1]),(montagem[2]),(montagem[3]),1)
     update()
     abregarra()
     update()
-    dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
+    dType.SetPTPCmdEx(api,1,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
     update()
 
 def pegatampa1():
@@ -289,11 +289,11 @@ def pegatampa1():
     update()
     dType.SetPTPCommonParamsEx(api,10,10,1)
     update()
-    dType.SetPTPCmdEx(api,0,(tampa1[0]),(tampa1[1]),(tampa1[2]),(tampa1[3]),1)
+    dType.SetPTPCmdEx(api,1,(tampa1[0]),(tampa1[1]),(tampa1[2]),(tampa1[3]),1)
     update()
     fechagarra()
     update()
-    dType.SetPTPCmdEx(api,0,(tampa1[0]),(tampa1[1]) ,(tampa1[2] + aprox),(tampa1[3]),1)
+    dType.SetPTPCmdEx(api,1,(tampa1[0]),(tampa1[1]) ,(tampa1[2] + aprox),(tampa1[3]),1)
     update()
 
 def pegatampa2():
@@ -306,11 +306,11 @@ def pegatampa2():
     update()
     dType.SetPTPCommonParamsEx(api,10,10,1)
     update()
-    dType.SetPTPCmdEx(api,0,(tampa2[0]),(tampa2[1]),(tampa2[2]),(tampa2[3]),1)
+    dType.SetPTPCmdEx(api,1,(tampa2[0]),(tampa2[1]),(tampa2[2]),(tampa2[3]),1)
     update()
     fechagarra()
     update()
-    dType.SetPTPCmdEx(api,0,(tampa2[0]),(tampa2[1]) ,(tampa2[2] + aprox),(tampa2[3]),1)
+    dType.SetPTPCmdEx(api,1,(tampa2[0]),(tampa2[1]) ,(tampa2[2] + aprox),(tampa2[3]),1)
     update()
 	
 def pegatampa3():
@@ -323,11 +323,11 @@ def pegatampa3():
     update()
     dType.SetPTPCommonParamsEx(api,10,10,1)
     update()
-    dType.SetPTPCmdEx(api,0,(tampa3[0]),(tampa3[1]),(tampa3[2]),(tampa3[3]),1)
+    dType.SetPTPCmdEx(api,1,(tampa3[0]),(tampa3[1]),(tampa3[2]),(tampa3[3]),1)
     update()
     fechagarra()
     update()
-    dType.SetPTPCmdEx(api,0,(tampa3[0]),(tampa3[1]) ,(tampa3[2] + aprox),(tampa3[3]),1)
+    dType.SetPTPCmdEx(api,1,(tampa3[0]),(tampa3[1]) ,(tampa3[2] + aprox),(tampa3[3]),1)
     update()
 
 def pegatampa4():
@@ -340,11 +340,11 @@ def pegatampa4():
     update()
     dType.SetPTPCommonParamsEx(api,10,10,1)
     update()
-    dType.SetPTPCmdEx(api,0,(tampa4[0]),(tampa4[1]),(tampa4[2]),(tampa4[3]),1)
+    dType.SetPTPCmdEx(api,1,(tampa4[0]),(tampa4[1]),(tampa4[2]),(tampa4[3]),1)
     update()
     fechagarra()
     update()
-    dType.SetPTPCmdEx(api,0,(tampa4[0]),(tampa4[1]) ,(tampa4[2] + aprox),(tampa4[3]),1)
+    dType.SetPTPCmdEx(api,1,(tampa4[0]),(tampa4[1]) ,(tampa4[2] + aprox),(tampa4[3]),1)
     update()
 	
 def pegatampa5():
@@ -357,11 +357,11 @@ def pegatampa5():
     update()
     dType.SetPTPCommonParamsEx(api,10,10,1)
     update()
-    dType.SetPTPCmdEx(api,0,(tampa5[0]),(tampa5[1]),(tampa5[2]),(tampa5[3]),1)
+    dType.SetPTPCmdEx(api,1,(tampa5[0]),(tampa5[1]),(tampa5[2]),(tampa5[3]),1)
     update()
     fechagarra()
     update()
-    dType.SetPTPCmdEx(api,0,(tampa5[0]),(tampa5[1]) ,(tampa5[2] + aprox),(tampa5[3]),1)
+    dType.SetPTPCmdEx(api,1,(tampa5[0]),(tampa5[1]) ,(tampa5[2] + aprox),(tampa5[3]),1)
     update()
 
 def pegatampa6():

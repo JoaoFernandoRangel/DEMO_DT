@@ -193,11 +193,12 @@ def pegaesteira():
 	update()
 	dType.SetPTPCommonParamsEx(api,5,5,1)
 	update()
-	dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
+	dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
 	update()
+	#dType.SetPTPCommonParams(api, velocityRatio, accelerationRatio, isQueued=0)
 	fechagarra()
 	update()
-	dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+	dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
 	update()
 
 def colocamontagem():
@@ -208,11 +209,11 @@ def colocamontagem():
 	update()
 	dType.SetPTPCommonParamsEx(api,5,5,1)
 	update()
-	dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2]),(montagem[3]),1)
+	dType.SetPTPCmdEx(api,1,(montagem[0]),(montagem[1]),(montagem[2]),(montagem[3]),1)
 	update()
 	abregarra()
 	update()
-	dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
+	dType.SetPTPCmdEx(api,1,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
 	update()
 
 def pegatampa1():
@@ -225,11 +226,11 @@ def pegatampa1():
 	update()
 	dType.SetPTPCommonParamsEx(api,10,10,1)
 	update()
-	dType.SetPTPCmdEx(api,0,(tampa1[0]),(tampa1[1]),(tampa1[2]),(tampa1[3]),1)
+	dType.SetPTPCmdEx(api,1,(tampa1[0]),(tampa1[1]),(tampa1[2]),(tampa1[3]),1)
 	update()
 	fechagarra()
 	update()
-	dType.SetPTPCmdEx(api,0,(tampa1[0]),(tampa1[1]) ,(tampa1[2] + aprox),(tampa1[3]),1)
+	dType.SetPTPCmdEx(api,1,(tampa1[0]),(tampa1[1]) ,(tampa1[2] + aprox),(tampa1[3]),1)
 	update()
 	
 	
@@ -244,13 +245,13 @@ def montatampa():
 	update()
 	abregarra()
 	update()
-	dType.SetPTPCmdEx(api,0,(montagemtampa[0]),(montagemtampa[1]),(montagemtampa[2] + aprox),(montagemtampa[3]),1)
+	dType.SetPTPCmdEx(api,1,(montagemtampa[0]),(montagemtampa[1]),(montagemtampa[2] + aprox),(montagemtampa[3]),1)
 	update()
 
 
 def guarda ():
 	update()
-	dType.SetPTPCmdEx(api,0,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+	dType.SetPTPCmdEx(api,1,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
 	update()
 	dType.SetPTPCommonParamsEx(api,10,10,1)
 	update()
@@ -258,7 +259,7 @@ def guarda ():
 	update()
 	fechagarra()
 	update()
-	dType.SetPTPCmdEx(api,0,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
+	dType.SetPTPCmdEx(api,1,(retirapronta[0]),(retirapronta[1]),(retirapronta[2] + aprox),(retirapronta[3]),1)
 	update()
 
 	
