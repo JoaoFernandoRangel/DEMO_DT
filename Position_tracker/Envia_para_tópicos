@@ -34,10 +34,10 @@ client.on_subscribe = on_subscribe
 client.on_message = on_message
 
 client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
-#client.username_pw_set("position_tracker", "Digital1")
-client.username_pw_set("User_pc", "Digital1#")
-#client.connect("dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud", 8883)
-client.connect("25d06c5109f94ef78c7bcfc1c33fdf20.s2.eu.hivemq.cloud", 8883)
+client.username_pw_set("position_tracker", "Digital1")
+#client.username_pw_set("User_pc", "Digital1#")
+client.connect("dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud", 8883) #client DT
+#client.connect("25d06c5109f94ef78c7bcfc1c33fdf20.s2.eu.hivemq.cloud", 8883) #client sitio
 topico = "garraxyzr" 
 i = 0
 
@@ -47,7 +47,7 @@ try:
     while True:
         string = "vai filhao" + str(i)
         client.publish(topico, string, qos=1)
-        time.sleep(1)
+        time.sleep(0.5)
         i = i + 1
 except KeyboardInterrupt:
     print("Exiting the loop.")

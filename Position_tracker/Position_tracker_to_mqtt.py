@@ -33,7 +33,7 @@ client.username_pw_set("position_tracker", "Digital1")
 client.connect("dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud", 8883)
 topico = "garraxyzr" 
 
-client.loop_start()
+
 
 class MyHandler(FileSystemEventHandler):
     def __init__(self, folder):
@@ -87,4 +87,5 @@ if __name__ == "__main__":
     #pasta_vigilancia = "C:\\Users\\Digital Twin\\Documents\\GitHub\\DEMO_DT\\Position_tracker\\Logs"
     pasta_vigilancia = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs"
     vigiar_pasta(pasta_vigilancia)
-
+    client.loop_start()
+    #observer.join()
