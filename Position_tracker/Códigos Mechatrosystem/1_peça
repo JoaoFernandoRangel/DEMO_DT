@@ -86,7 +86,7 @@ montagemtampa = [287.0620 , 2.6663 , 56.7805 , 7.4995]
 tampa1 = [190.5303 , 72.3327 , 23.4604 , 8.6788]
 peca1 = [188.3365 , 178.3896 , 36.2875 , -35.9722]
 
-azul1 = [-81.6309 , -165.2486 , 24.5483 , -128.3200]
+azul1 = [-81.6309 , -165.2486 , 24.5483 , -90]
 vermelha1 = [-14.8509 , -165.2496, 26.1557, -128.3200]
 insere = [286.3870 ,1.4466, 67.1643 , -11.7400]
 retirapronta = [286.3913 , 2.6706 , 34.3566 , -78.5320]
@@ -287,11 +287,15 @@ def guarda ():
 
 def pegaazul1():
 	update()
+	print('a')
 	dType.SetPTPCmdEx(api,0 ,35 ,-186.3 ,94, -69 ,1)
+	print('aa')
 	update()
-	dType.SetPTPCommonParamsEx(api,50,50,1)
+	dType.SetPTPCommonParamsEx(api,10,10,1)
 	update()
-	dType.SetPTPCmdEx(api,0,(azul1[0]),(azul1[1]),(azul1[2] + 10),azul1[3],1)
+	print('aaa')
+	dType.SetPTPCmdEx(api,1,(azul1[0]),(azul1[1]),(azul1[2] + 10),azul1[3],1)
+	print('aaaa')
 	update()
 	dType.SetPTPCommonParamsEx(api,10,10,1)
 	update()
@@ -358,17 +362,17 @@ dType.SetPTPCmdEx(api,0,(home[0]),(home[1]),(home[2] + aprox),(home[3]),1)
 
 #transporta()
 
-pegaesteira()
+#pegaesteira()
 
-colocamontagem()
+#colocamontagem()
 
 pegaazul1()
 
-pegavermelha1()
+#pegavermelha1()
 
-pegatampa1()
+#pegatampa1()
 
-montatampa()
+#montatampa()
 guarda ()
 dType.SetPTPCmdEx(api,0,(home[0]),(home[1]),(home[2] + aprox),(home[3]),1)
 

@@ -1,4 +1,5 @@
 import time
+from time import sleep
 from datetime import datetime
 import os
 import math
@@ -28,7 +29,7 @@ def update_abre():
     data_hora_atual = datetime.now()
     formato_data_hora = "%H-%M-%S"
     timestamp1 = data_hora_atual.strftime(formato_data_hora)
-    string_garra = "abre-garra"
+    string_garra = "GA"
     # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
     novo_arquivo = diretorio + space + timestamp1 + space + string_garra + ".txt"
     
@@ -43,7 +44,7 @@ def update_fecha():
     data_hora_atual = datetime.now()
     formato_data_hora = "%H-%M-%S"
     timestamp1 = data_hora_atual.strftime(formato_data_hora)
-    string_garra = "fecha-garra"
+    string_garra = "GF"
     # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
     novo_arquivo = diretorio + space + timestamp1 + space + string_garra + ".txt"
     log.write(string_garra)
@@ -53,13 +54,13 @@ def update_fecha():
     time.sleep(1)
 	
 
-space = "___"
+space = "%%"
 #diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
 diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
 data_hora_atual = datetime.now()
 formato_data_hora = "%Y-%m-%d_%H-%M-%S"
 timestamp = data_hora_atual.strftime(formato_data_hora)
-diretorio_novo =  diretorio + "Logs__" + timestamp + ".txt"
+diretorio_novo =  diretorio + "Logs%%" + timestamp + ".txt"
 
 log = open(diretorio_novo, 'w+')
 
@@ -108,9 +109,9 @@ def posicoes():
   global montagemtampa
   global retirapronta
 
-ponto_esteira = [110.4975, -173.3186, 31.5026, -84]
+ponto_esteira = [112.4975, -173.3186, 31.5026, -84]
 home = [223.0752, 0, 40, 0]
-montagem = [282.6386 ,2.3481 , 40.2573 , 0]
+montagem = [283.6386 ,2.3481 , 40.2573 , 0]
 montagemtampa = [282.6386 ,2.3481 , 58.2095 , 0]
 
 
@@ -135,10 +136,10 @@ peca7 = [48.1435, 169.1429 ,32 , 90]
 peca8 = [48.1435, 216.7334   ,32 , 90]
 
 
-azul1 = [-79.5677 , -167.7236,   20 , -90]
-azul2 = [-79.5677 , -216.3841 ,  20 , -90]
-azul3 = [-79.5677 , -188.0164 ,  20 , -90]
-azul4 = [-79.5677 , -161.5198 ,  20 , -90]
+azul1 = [-79.5677 , -160.7236,   20 , -90]
+azul2 = [-79.5677 , -209.3841 ,  20 , -90]
+azul3 = [-79.5677 , -181.0164 ,  20 , -90]
+azul4 = [-79.5677 , -154.5198 ,  20 , -90]
 azul5 = [-111.9670 , -163.0784 , 20 , -90]
 azul6 = [-111.9670  , -188.0164, 20 , -90]
 azul7 = [-111.9670  , -216.3841, 20 , -90]
@@ -153,9 +154,8 @@ vermelha6 = [-44.1676 , -187.9678, 20 , -90]
 vermelha7 = [-44.1676 , -214.2232, 20 , -90]
 vermelha8 = [-44.1676 ,-241.7262,  20 , -90]
 
-insere = [282.9474 ,1.8, 67.6 , 2.34]
+insere = [284.9474 ,0, 67.6 , 2.34]
 retirapronta = [283.9509 ,2.5633, 33.5151 , 0]
-
 
 
 def teste():
@@ -184,13 +184,13 @@ def configura():
 	dType.SetIOMultiplexingEx(api, 7, 3, 1)
 	dType.SetIOMultiplexingEx(api, 4, 3, 1)
 	dType.SetIOMultiplexingEx(api, 5, 3, 1)
-	dType.SetIOMultiplexingEx(api, 18, 1, 1)
-	dType.SetIOMultiplexingEx(api, 14, 1, 1)
-	dType.SetIOMultiplexingEx(api, 15, 1, 1)
-	dType.SetIOMultiplexingEx(api, 6, 1, 1)
-	dType.SetIOMultiplexingEx(api, 13, 1, 1)
-	dType.SetIOMultiplexingEx(api, 17, 1, 1)
-	dType.SetIOMultiplexingEx(api, 2, 1, 1)
+	dType.SetIOMultiplexingEx(api, 18, 1, 1)#Pistão A
+	dType.SetIOMultiplexingEx(api, 14, 1, 1)#Pistao B
+	dType.SetIOMultiplexingEx(api, 15, 1, 1)#Pistão C
+	dType.SetIOMultiplexingEx(api, 6, 1, 1)#Pistão D
+	dType.SetIOMultiplexingEx(api, 13, 1, 1)#Motor vertical
+	dType.SetIOMultiplexingEx(api, 17, 1, 1)#Esteira 1
+	dType.SetIOMultiplexingEx(api, 2, 1, 1)#Esteira 2
 	dType.SetIOMultiplexingEx(api, 13, 1, 1)
 
 def alimenta():
@@ -209,74 +209,73 @@ def alimenta():
 		print ("teste2")
 		dType.SetWAITCmdEx(api, 0.3, 1)
 		
+def transporta():
+    dType.SetIODOEx(api, 17, 1, 1)
 
-def transporta ():
+    while (dType.GetIODI(api, 5)[0]) == 0:
+        dType.SetWAITCmdEx(api, 0.5, 1)
+    
+    dType.SetIODOEx(api, 17, 0, 1)
+    dType.SetWAITCmdEx(api,1000,1)
+    dType.SetIODOEx(api, 14, 1, 1)
 
-	dType.SetIODOEx(api, 17, 1, 1)
+    while (dType.GetIODI(api, 7)[0]) == 0:
+        dType.SetWAITCmdEx(api, 0.5, 1)
 
-	while (dType.GetIODI(api, 5)[0]) == 0:
-		dType.SetWAITCmdEx(api, 0.5, 1)
-		
-	dType.SetIODOEx(api, 17, 0, 1)
-	dType.SetIODOEx(api, 14, 1, 1)
-	
-	while (dType.GetIODI(api, 7)[0]) == 0:
-		dType.SetWAITCmdEx(api, 0.5, 1)
+    dType.SetIODOEx(api, 14, 0, 1)
+    dType.SetWAITCmdEx(api, 3, 1)
 
-	dType.SetIODOEx(api, 14, 0, 1)
-	dType.SetWAITCmdEx(api, 3, 1)
+    dType.SetIODOEx(api, 6, 1, 1)
+    dType.SetIODOEx(api, 13, 1, 1)
 
-	dType.SetIODOEx(api, 6, 1, 1)
-	dType.SetIODOEx(api, 13, 1, 1)
+    dType.SetWAITCmdEx(api, 4000, 1)
 
-	dType.SetWAITCmdEx(api, 4000, 1)
+    dType.SetIODOEx(api, 6, 0, 1)
+    dType.SetIODOEx(api, 13, 0, 1)
 
-	dType.SetIODOEx(api, 6, 0, 1)
-	dType.SetIODOEx(api, 13, 0, 1)
+    dType.SetWAITCmdEx(api, 5, 1)
+    dType.SetWAITCmdEx(api,1500,1)
+    dType.SetIODOEx(api, 15, 1, 1)
 
-	dType.SetWAITCmdEx(api, 5, 1)
-	dType.SetIODOEx(api, 15, 1, 1)
-	
-	while (dType.GetIODI(api, 4)[0]) == 0:
-		dType.SetWAITCmdEx(api, 500, 1)
+    while (dType.GetIODI(api, 4)[0]) == 0:
+        dType.SetWAITCmdEx(api, 500, 1)
 
-	dType.SetIODOEx(api, 15, 0, 1)
-	dType.SetWAITCmdEx(api, 2000, 1)
-	dType.SetIODOEx(api, 2, 1, 1)
+    dType.SetIODOEx(api, 15, 0, 1)
+    dType.SetWAITCmdEx(api, 2000, 1)
+    dType.SetIODOEx(api, 2, 1, 1)
 
-	#dType.SetWAITCmdEx(api, 10, 1)
-	dType.SetWAITCmd(api, 5000, isQueued=1)
+    dType.SetWAITCmdEx(api,5000,1)
+    dType.SetIODOEx(api, 2, 0, 1)
 
-	dType.SetIODOEx(api, 2, 0, 1)
-
-
-	
 
 def pegaesteira():
     update()
-    dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+    dType.SetPTPCmdEx(api, 0, (ponto_esteira[0]), (ponto_esteira[1]), (ponto_esteira[2] + aprox), (ponto_esteira[3]), 1)
     update()
-    dType.SetPTPCommonParamsEx(api,5,5,1)
-    dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
+    dType.SetPTPCommonParamsEx(api, 5, 5, 1)
+    dType.SetPTPCmdEx(api, 1, (ponto_esteira[0]), (ponto_esteira[1]), (ponto_esteira[2]), (ponto_esteira[3]), 1)
     update()
     fechagarra()
-    dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+    dType.SetPTPCmdEx(api, 1, (ponto_esteira[0]), (ponto_esteira[1]), (ponto_esteira[2] + aprox), (ponto_esteira[3]), 1)
     update()
+    dType.SetWAITCmd(api, 500, isQueued=1)
 
+	
 def colocamontagem():
-
     dType.SetPTPCommonParamsEx(api,50,50,1)
     update()
     dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
     update()
     dType.SetPTPCommonParamsEx(api,5,5,1)
     update()
-    dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2]),(montagem[3]),1)
+    dType.SetPTPCmdEx(api,1,(montagem[0]),(montagem[1]),(montagem[2]),(montagem[3]),1)
     update()
     abregarra()
     update()
-    dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
+    dType.SetPTPCommonParamsEx(api,20,20,1)
+    dType.SetPTPCmdEx(api,1,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
     update()
+
 
 def pegatampa1():
 
@@ -685,9 +684,11 @@ def pegaazul1():
     update()
     dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
     update()
+    dType.SetPTPCommonParamsEx(api,20,20,1)
     dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
     update()
-    dType.SetPTPCmdEx(api,1,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    dType.SetPTPCommonParamsEx(api,5,5,1)
+    dType.SetPTPCmdEx(api,0,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
     update()
     abregarra()
     update()

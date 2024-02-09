@@ -1,47 +1,26 @@
-ponto_esteira = [110.4975, -173.3186, 31.5026, -84]
-home = [223.0752, 0, 40, 0]
-montagem = [282.6386 ,2.3481 , 40.2573 , 0]
-montagemtampa = [282.6386 ,2.3481 , 58.2095 , 0]
-
-
-
-tampa1 = [183.6411 ,24.0021 , 23.5616 , 0]
-tampa2 = [183.6411 ,23.0042 , 23.5616 , 0]
-tampa3 = [183.6411 ,-21.4659, 23.5616 , 0]
-tampa4 = [183.6411 ,-67.1619, 23.5616 , 0]
-tampa5 = [232.0508 ,-66.8023, 23.5616 , 0]
-tampa6 = [232.0508 ,-21.1304, 23.5616 , 0]
-tampa7 = [232.0508 ,25.8537 , 23.5616 , 0]
-tampa8 = [232.0508 ,72.4578 , 23.5616 , 0]
-
-
-peca1 = [182.6844, 176.227 , 32 , 90]
-peca2 = [184.7742 , 223.2481 , 32 , 90]
-peca3 = [137.7952 , 172.4430 , 32 , 90]
-peca4 = [137.7952  , 220.3223   ,32 , 90]
-peca5 = [92.6271 , 171.2893 ,32 , 90] 
-peca6 = [92.6273 , 218.0526, 32 , 90]
-peca7 = [48.1435, 169.1429 ,32 , 90]
-peca8 = [48.1435, 216.7334   ,32 , 90]
-
-
-azul1 = [-79.5677 , -167.7236,   20 , -90]
-azul2 = [-79.5677 , -216.3841 ,  20 , -90]
-azul3 = [-79.5677 , -188.0164 ,  20 , -90]
-azul4 = [-79.5677 , -161.5198 ,  20 , -90]
-azul5 = [-111.9670 , -163.0784 , 20 , -90]
-azul6 = [-111.9670  , -188.0164, 20 , -90]
-azul7 = [-111.9670  , -216.3841, 20 , -90]
-azul8 = [-111.9670  , -244.3888, 20 , -90]
-
-vermelha1 = [ -11.3838, -241.7262, 20 , -90]
-vermelha2 = [ -11.3838, -214.2232, 20 , -90]
-vermelha3 = [ -11.3838, -187.9678, 20 , -90]
-vermelha4 = [ -11.3838, -160, 20 , -90]
-vermelha5 = [-44.1676 , -160, 20 , -90]
-vermelha6 = [-44.1676 , -187.9678, 20 , -90]
-vermelha7 = [-44.1676 , -214.2232, 20 , -90]
-vermelha8 = [-44.1676 ,-241.7262,  20 , -90]
-
-insere = [282.9474 ,1.8, 67.6 , 2.34]
-retirapronta = [283.9509 ,2.5633, 33.5151 , 0]
+def pegaazul1():
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,20,20,1)	
+    update()
+    dType.SetPTPCmdEx(api,1,(azul1[0]),(azul1[1]),(azul1[2] + 10),azul1[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,5,5,1)
+    update()
+    dType.SetPTPCmdEx(api,2,(azul1[0]),(azul1[1]),(azul1[2]),azul1[3],1)
+    update()
+    fechagarra()	
+    update()
+    dType.SetPTPCmdEx(api,2,(azul1[0]),(azul1[1]),(azul1[2] + 15),azul1[3],1)	
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,20,20,1)
+    dType.SetPTPCmdEx(api,0,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,5,5,1)
+    dType.SetPTPCmdEx(api,0,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()

@@ -31,9 +31,9 @@ client.on_connect = on_connect
 client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
 client.username_pw_set("position_tracker", "Digital1")
 client.connect("dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud", 8883)
-topico = "garraxyzr" 
+topico = "xyzr" 
 
-client.loop_start()
+
 
 class MyHandler(FileSystemEventHandler):
     def __init__(self, folder):
@@ -49,6 +49,7 @@ class MyHandler(FileSystemEventHandler):
             #Adicionar diretorio do computador de mesa
             #str_pub = event.src_path.replace("C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
             str_pub = str_pub.replace(".txt", "")
+            str_pub = str_pub.replace(".",",")
             #str_pub = str_pub.replace("-", ":")
             client.publish(topico, str_pub, 1)
             self.pacote = event.src_path
@@ -76,6 +77,7 @@ def vigiar_pasta(pasta):
     observer = Observer() 
     observer.schedule(event_handler, pasta, recursive=False)
     observer.start()
+    client.loop_start()
 
     with keyboard.Listener(on_press=on_press) as listener:
         try:
@@ -89,4 +91,5 @@ if __name__ == "__main__":
     #pasta_vigilancia = "C:\\Users\\Digital Twin\\Documents\\GitHub\\DEMO_DT\\Position_tracker\\Logs"
     pasta_vigilancia = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs"
     vigiar_pasta(pasta_vigilancia)
+    
 

@@ -3,6 +3,16 @@ from datetime import datetime
 import os
 import math
 
+space = "%%"
+#diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
+diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
+data_hora_atual = datetime.now()
+formato_data_hora = "%Y-%m-%d_%H-%M-%S"
+timestamp = data_hora_atual.strftime(formato_data_hora)
+diretorio_novo =  diretorio + "Logs%%" + timestamp + ".txt"
+
+log = open(diretorio_novo, 'w+')
+
 def pega_pose_e_escreve(): 
     pose_info_atual = dType.GetPose(api)  # Supondo que dType.GetPose(api) é uma função válida
     # Verifique se houve uma mudança na pose_info
@@ -24,34 +34,61 @@ def pega_pose_e_escreve():
 
     time.sleep(1)
 
-space = "__"
-#diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
-diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
-data_hora_atual = datetime.now()
-formato_data_hora = "%Y-%m-%d_%H-%M-%S"
-timestamp = data_hora_atual.strftime(formato_data_hora)
-diretorio_novo =  diretorio + "Logs__" + timestamp + ".txt"
+def update_abre():
+    data_hora_atual = datetime.now()
+    formato_data_hora = "%H-%M-%S"
+    timestamp1 = data_hora_atual.strftime(formato_data_hora)
+    string_garra = "GA"
+    # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
+    novo_arquivo = diretorio + space + timestamp1 + space + string_garra + ".txt"
+    
+    with open(novo_arquivo, "w+") as x:
+        x.write(string_garra)
+        print('posicao escrita')
 
-log = open(diretorio_novo, 'w+')
+    log.write(string_garra)  # Corrected indentation
+    time.sleep(1)
+	
+def update_fecha():
+    data_hora_atual = datetime.now()
+    formato_data_hora = "%H-%M-%S"
+    timestamp1 = data_hora_atual.strftime(formato_data_hora)
+    string_garra = "GF"
+    # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
+    novo_arquivo = diretorio + space + timestamp1 + space + string_garra + ".txt"
+    log.write(string_garra)
+    with open(novo_arquivo, "w+") as x:
+        x.write(string_garra)
+        print('posicao escrita')
+    time.sleep(1)
+	
+ponto_esteira = [200, 0, 50, 0]
 
-while True:
-    pega_pose_e_escreve()
 
 # Obtenha a pose inicial
-#pega_pose_e_escreve()
-#dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
-#pega_pose_e_escreve()
-#dType.SetPTPCommonParamsEx(api,5,5,1)
-#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2])+50,(ponto_esteira[3]),1)
-#pega_pose_e_escreve()
-#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
-#pega_pose_e_escreve()
-#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1])+50,(ponto_esteira[2]),(ponto_esteira[3]),1)
-#pega_pose_e_escreve()
-#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]+50),(ponto_esteira[1]),(ponto_esteira[2])+50,(ponto_esteira[3]),1)
-#pega_pose_e_escreve()
-#dType.SetPTPCmdEx(api,2,(ponto_esteira[0]+50),(ponto_esteira[1]),(ponto_esteira[2])+50,(ponto_esteira[3])+50,1)
-#pega_pose_e_escreve()
+for count in range(10):
+	update_abre()
+	time.sleep(2)
+	update_fecha()
+
+
+
+
+
+#for count in range(5):
+#	dType.SetPTPCommonParamsEx(api,50,50,1)
+#	pega_pose_e_escreve()
+#	pega_pose_e_escreve()
+#	dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]+70),(ponto_esteira[2])+50,(ponto_esteira[3]),1)
+#	pega_pose_e_escreve()
+#	dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]-70),(ponto_esteira[2] + 50),(ponto_esteira[3]),1)
+#	pega_pose_e_escreve()
+#	dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
+#	pega_pose_e_escreve()
+#	dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]-70),(ponto_esteira[2]),(ponto_esteira[3]),1)
+#	pega_pose_e_escreve()
+#	dType.SetPTPCmdEx(api,2,(ponto_esteira[0]),(ponto_esteira[1]+70),(ponto_esteira[2])+50,(ponto_esteira[3]),1)
+#	pega_pose_e_escreve()
 
 
 # Feche o arquivo de log
