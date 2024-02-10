@@ -47,7 +47,7 @@ class MyHandler(FileSystemEventHandler):
             print(f"Novo arquivo criado: {event.src_path}")
             str_pub = event.src_path.replace("C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
             #Adicionar diretorio do computador de mesa
-            #str_pub = event.src_path.replace("C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
+            #str_pub = event.src_path.replace("C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log%%","")
             str_pub = str_pub.replace(".txt", "")
             str_pub = str_pub.replace(".",",")
             #str_pub = str_pub.replace("-", ":")

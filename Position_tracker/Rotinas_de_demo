@@ -1,0 +1,113 @@
+import time
+from time import sleep
+from datetime import datetime
+import os
+import math
+
+def configura():
+	global aprox
+	aprox = 30
+	dType.SetIOMultiplexingEx(api, 19, 3, 1)
+	dType.SetIOMultiplexingEx(api, 20, 3, 1)
+	dType.SetIOMultiplexingEx(api, 7, 3, 1)
+	dType.SetIOMultiplexingEx(api, 4, 3, 1)
+	dType.SetIOMultiplexingEx(api, 5, 3, 1)
+	dType.SetIOMultiplexingEx(api, 18, 1, 1)#Pistão A
+	dType.SetIOMultiplexingEx(api, 14, 1, 1)#Pistao B
+	dType.SetIOMultiplexingEx(api, 15, 1, 1)#Pistão C
+	dType.SetIOMultiplexingEx(api, 6, 1, 1)#Pistão D
+	dType.SetIOMultiplexingEx(api, 13, 1, 1)#Motor vertical
+	dType.SetIOMultiplexingEx(api, 17, 1, 1)#Esteira 1
+	dType.SetIOMultiplexingEx(api, 2, 1, 1)#Esteira 2
+	dType.SetIOMultiplexingEx(api, 13, 1, 1)
+
+def update(): 
+    global string_garra
+    string_garra = "GA"
+    pose_info_atual = dType.GetPose(api)  # Supondo que dType.GetPose(api) é uma função válida
+    # Verifique se houve uma mudança na pose_info
+    data_hora_atual = datetime.now()
+    formato_data_hora = "%H-%M-%S"
+    timestamp1 = data_hora_atual.strftime(formato_data_hora)
+    string = str(round(pose_info_atual[0], 3)) + space + str(round(pose_info_atual[1], 3)) + space + str(
+        round(pose_info_atual[2], 3)) + space + str(round(pose_info_atual[3], 3)) + space + string_garra
+    string_Print = str(timestamp1) + space + string  + "\n"
+    log.write(string_Print)
+    
+    # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
+    novo_arquivo = diretorio + space + timestamp1 + space + string.replace(" ", "_") + ".txt"
+    with open(novo_arquivo, "w+") as x:
+        x.write(string_Print)
+        print('posicao escrita')
+    # Atualize a pose_info_anterior
+    time.sleep(1)
+
+space = "%%"
+#diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
+diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
+data_hora_atual = datetime.now()
+formato_data_hora = "%Y-%m-%d_%H-%M-%S"
+timestamp = data_hora_atual.strftime(formato_data_hora)
+diretorio_novo =  diretorio.replace("log", "") + "Logs%%" + timestamp + ".txt"
+
+log = open(diretorio_novo, 'w+')
+
+rotina = 0
+#rotina 1 = mover o robo com a mão e fazer a Unity copiar
+#rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
+#adicionar rotação na rotina 2
+#rotina 3 = movimentação do braço com pistões
+#rotina 4 = simulação de falha com o potênciometro
+#rotina 5 = acionamento do ciclo de 1 peça
+def abregarra():
+    dType.SetWAITCmdEx(api, 500, 1)
+    dType.SetEndEffectorGripperEx(api, 1, 0)
+    dType.SetWAITCmdEx(api, 500, 1)
+    string_garra = "GA"
+
+def fechagarra():
+    dType.SetWAITCmdEx(api, 500, 1)
+    dType.SetEndEffectorGripperEx(api, 1, 1)
+    dType.SetWAITCmdEx(api, 500 ,  1)
+    string_garra = "GF"
+
+def rotina2():
+    dType.SetPTPCommonParamsEx(api,20,20,1)	
+    update()
+    dType.SetPTPCmdEx(api,0,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCmdEx(api,2,(azul1[0]),(azul1[1]),(azul1[2]),azul1[3],1)
+    update()
+    fechagarra()	
+    update()
+    dType.SetPTPCmdEx(api,2,(azul1[0]),(azul1[1]),(azul1[2] + 15),azul1[3],1)	
+    update()
+    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
+    update()
+    dType.SetPTPCommonParamsEx(api,20,20,1)
+    dType.SetPTPCmdEx(api,0,home[0],home[1],home[2],home[3],1)
+    update()
+    dType.SetPTPCommonParamsEx(api,5,5,1)
+    dType.SetPTPCmdEx(api,0,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    update()
+    abregarra()
+    update()
+
+
+
+if (rotina==0):
+    print('rotina 0')
+elif (rotina==1):
+    print('rotina 1')
+    while True:
+        update()
+elif (rotina==2):
+    print('rotina 2')
+    for count in range(10):
+        rotina2()
+elif (rotina==3):
+    print('rotina 3')
+elif (rotina==4):
+    print('rotina 4')
+elif (rotina==5):
+    print('rotina 5')

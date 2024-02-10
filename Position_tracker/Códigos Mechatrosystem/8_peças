@@ -3,16 +3,27 @@ from time import sleep
 from datetime import datetime
 import os
 import math
+space = "%%"
+#diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
+diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
+data_hora_atual = datetime.now()
+formato_data_hora = "%Y-%m-%d_%H-%M-%S"
+timestamp = data_hora_atual.strftime(formato_data_hora)
+diretorio_novo =  diretorio.replace("log", "") + "Logs%%" + timestamp + ".txt"
+
+log = open(diretorio_novo, 'w+')
 
 def update(): 
+    global string_garra
+    string_garra = "GA"
     pose_info_atual = dType.GetPose(api)  # Supondo que dType.GetPose(api) é uma função válida
     # Verifique se houve uma mudança na pose_info
     data_hora_atual = datetime.now()
     formato_data_hora = "%H-%M-%S"
     timestamp1 = data_hora_atual.strftime(formato_data_hora)
     string = str(round(pose_info_atual[0], 3)) + space + str(round(pose_info_atual[1], 3)) + space + str(
-        round(pose_info_atual[2], 3)) + space + str(round(pose_info_atual[3], 3))
-    string_Print = str(timestamp1) + space + string + "\n"
+        round(pose_info_atual[2], 3)) + space + str(round(pose_info_atual[3], 3)) + space + string_garra
+    string_Print = str(timestamp1) + space + string  + "\n"
     log.write(string_Print)
     
     # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
@@ -21,93 +32,11 @@ def update():
         x.write(string_Print)
         print('posicao escrita')
     # Atualize a pose_info_anterior
-    
-  
     time.sleep(1)
-	
-def update_abre():
-    data_hora_atual = datetime.now()
-    formato_data_hora = "%H-%M-%S"
-    timestamp1 = data_hora_atual.strftime(formato_data_hora)
-    string_garra = "GA"
-    # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
-    novo_arquivo = diretorio + space + timestamp1 + space + string_garra + ".txt"
-    
-    with open(novo_arquivo, "w+") as x:
-        x.write(string_garra)
-        print('posicao escrita')
-
-    log.write(string_garra)  # Corrected indentation
-    time.sleep(1)
-	
-def update_fecha():
-    data_hora_atual = datetime.now()
-    formato_data_hora = "%H-%M-%S"
-    timestamp1 = data_hora_atual.strftime(formato_data_hora)
-    string_garra = "GF"
-    # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
-    novo_arquivo = diretorio + space + timestamp1 + space + string_garra + ".txt"
-    log.write(string_garra)
-    with open(novo_arquivo, "w+") as x:
-        x.write(string_garra)
-        print('posicao escrita')
-    time.sleep(1)
-	
-
-space = "%%"
-#diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
-diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
-data_hora_atual = datetime.now()
-formato_data_hora = "%Y-%m-%d_%H-%M-%S"
-timestamp = data_hora_atual.strftime(formato_data_hora)
-diretorio_novo =  diretorio + "Logs%%" + timestamp + ".txt"
-
-log = open(diretorio_novo, 'w+')
-
-
 
 
 
 #Magician
-def posicoes():
-  global ponto_esteira
-  global home
-  global montagem  
-  global tampa1
-  global tampa2
-  global tampa3
-  global tampa4
-  global tampa5
-  global tampa6
-  global tampa7
-  global tampa8
-  global peca1
-  global peca2
-  global peca3
-  global peca4
-  global peca5
-  global peca6
-  global peca7
-  global peca8
-  global azul1
-  global azul2
-  global azul3
-  global azul4
-  global azul5
-  global azul6
-  global azul7
-  global azul8
-  global vermelha1
-  global vermelha2
-  global vermelha3
-  global vermelha4
-  global vermelha5
-  global vermelha6
-  global vermelha7
-  global vermelha8	
-  global insere
-  global montagemtampa
-  global retirapronta
 
 ponto_esteira = [112.4975, -173.3186, 31.5026, -84]
 home = [223.0752, 0, 40, 0]
@@ -156,6 +85,45 @@ vermelha8 = [-44.1676 ,-241.7262,  20 , -90]
 
 insere = [284.9474 ,0, 67.6 , 2.34]
 retirapronta = [283.9509 ,2.5633, 33.5151 , 0]
+def posicoes():
+  global ponto_esteira
+  global home
+  global montagem  
+  global tampa1
+  global tampa2
+  global tampa3
+  global tampa4
+  global tampa5
+  global tampa6
+  global tampa7
+  global tampa8
+  global peca1
+  global peca2
+  global peca3
+  global peca4
+  global peca5
+  global peca6
+  global peca7
+  global peca8
+  global azul1
+  global azul2
+  global azul3
+  global azul4
+  global azul5
+  global azul6
+  global azul7
+  global azul8
+  global vermelha1
+  global vermelha2
+  global vermelha3
+  global vermelha4
+  global vermelha5
+  global vermelha6
+  global vermelha7
+  global vermelha8	
+  global insere
+  global montagemtampa
+  global retirapronta
 
 
 def teste():
@@ -167,13 +135,13 @@ def abregarra():
     dType.SetWAITCmdEx(api, 500, 1)
     dType.SetEndEffectorGripperEx(api, 1, 0)
     dType.SetWAITCmdEx(api, 500, 1)
-    update_abre()
+    string_garra = "GA"
 
 def fechagarra():
     dType.SetWAITCmdEx(api, 500, 1)
     dType.SetEndEffectorGripperEx(api, 1, 1)
     dType.SetWAITCmdEx(api, 500 ,  1)
-    update_fecha()
+    string_garra = "GF"
 
 
 def configura():
@@ -200,13 +168,13 @@ def alimenta():
 	dType.SetIODOEx(api, 17, 1, 1)
 
 	while (dType.GetIODI(api, 20)[0]) == 0:
-		print ("teste1")
+		#print ("teste1")
 		dType.SetWAITCmdEx(api, 0.3, 1)
 
 	dType.SetIODOEx(api, 18, 0, 1)
 
 	while (dType.GetIODI(api, 19)[0]) == 0:
-		print ("teste2")
+		#print ("teste2")
 		dType.SetWAITCmdEx(api, 0.3, 1)
 		
 def transporta():
