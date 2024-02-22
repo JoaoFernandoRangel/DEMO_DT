@@ -4,6 +4,7 @@ import os
 import math
 
 def update(): 
+    global garra
     pose_info_atual = dType.GetPose(api)  # Supondo que dType.GetPose(api) é uma função válida
     # Verifique se houve uma mudança na pose_info
     data_hora_atual = datetime.now()
@@ -15,25 +16,24 @@ def update():
     log.write(string_Print)
     
     # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
-    novo_arquivo = diretorio + space + timestamp1 + space + string.replace(" ", "_") + ".txt"
+    novo_arquivo = diretorio + space + timestamp1 + space + string.replace(" ", "_") + space + garra + ".txt"
     with open(novo_arquivo, "w+") as x:
         x.write(string_Print)
         print('posicao escrita')
     # Atualize a pose_info_anterior
-    
-  
     time.sleep(1)
-		
 
 space = "%%"
-#diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
-diretorio = "C://Users//João Fernando Rangel//Desktop//Digital Twin//DEMO_DT//Position_tracker//Logs//log"
+garra = "GA"  # Removed global declaration since it's not needed here
+diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
+#diretorio = "C://Users//João Fernando Rangel//Desktop//Digital Twin//DEMO_DT//Position_tracker//Logs//log"
 data_hora_atual = datetime.now()
 formato_data_hora = "%Y-%m-%d_%H-%M-%S"
 timestamp = data_hora_atual.strftime(formato_data_hora)
-diretorio_novo =  diretorio + "Logs__" + timestamp + ".txt"
+diretorio_novo = diretorio + "Logs__" + timestamp + ".txt"
 
 log = open(diretorio_novo, 'w+')
+
 
 
 
@@ -50,6 +50,7 @@ def posicoes():
   global insere
   global montagemtampa
   global retirapronta
+ 
 
 ponto_esteira = [113.0719, -177.6358, 38.6852, -75.2771]
 home = [223.0752, 2.4736, 67.9859, 0]
@@ -71,34 +72,35 @@ def teste():
 
 
 def abregarra():
+    global garra
     dType.SetWAITCmdEx(api, 500, 1)
     dType.SetEndEffectorGripperEx(api, 1, 0)
     dType.SetWAITCmdEx(api, 500, 1)
-    string_garra = "GA"
+    garra = "GA"
 
 def fechagarra():
+    global garra
     dType.SetWAITCmdEx(api, 500, 1)
     dType.SetEndEffectorGripperEx(api, 1, 1)
-    dType.SetWAITCmdEx(api, 500 ,  1)
-    string_garra = "GF"
-
+    dType.SetWAITCmdEx(api, 500, 1)
+    garra = "GF"
 
 def configura():
-	global aprox
-	aprox = 30
-	dType.SetIOMultiplexingEx(api, 19, 3, 1)
-	dType.SetIOMultiplexingEx(api, 20, 3, 1)
-	dType.SetIOMultiplexingEx(api, 7, 3, 1)
-	dType.SetIOMultiplexingEx(api, 4, 3, 1)
-	dType.SetIOMultiplexingEx(api, 5, 3, 1)
-	dType.SetIOMultiplexingEx(api, 18, 1, 1)
-	dType.SetIOMultiplexingEx(api, 14, 1, 1)
-	dType.SetIOMultiplexingEx(api, 15, 1, 1)
-	dType.SetIOMultiplexingEx(api, 6, 1, 1)
-	dType.SetIOMultiplexingEx(api, 13, 1, 1)
-	dType.SetIOMultiplexingEx(api, 17, 1, 1)
-	dType.SetIOMultiplexingEx(api, 2, 1, 1)
-	dType.SetIOMultiplexingEx(api, 13, 1, 1)
+    global aprox
+    aprox = 30
+    dType.SetIOMultiplexingEx(api, 19, 3, 1)
+    dType.SetIOMultiplexingEx(api, 20, 3, 1)
+    dType.SetIOMultiplexingEx(api, 7, 3, 1)
+    dType.SetIOMultiplexingEx(api, 4, 3, 1)
+    dType.SetIOMultiplexingEx(api, 5, 3, 1)
+    dType.SetIOMultiplexingEx(api, 18, 1, 1)
+    dType.SetIOMultiplexingEx(api, 14, 1, 1)
+    dType.SetIOMultiplexingEx(api, 15, 1, 1)
+    dType.SetIOMultiplexingEx(api, 6, 1, 1)
+    dType.SetIOMultiplexingEx(api, 13, 1, 1)
+    dType.SetIOMultiplexingEx(api, 17, 1, 1)
+    dType.SetIOMultiplexingEx(api, 2, 1, 1)
+    dType.SetIOMultiplexingEx(api, 13, 1, 1)
 
 def alimenta():
 
@@ -334,17 +336,17 @@ dType.SetPTPCmdEx(api,0,(home[0]),(home[1]),(home[2] + aprox),(home[3]),1)
 
 #transporta()
 
-#pegaesteira()
+pegaesteira()
 
-#colocamontagem()
+colocamontagem()
 
 pegaazul1()
 
-#pegavermelha1()
+pegavermelha1()
 
-#pegatampa1()
+pegatampa1()
 
-#montatampa()
+montatampa()
 guarda ()
 dType.SetPTPCmdEx(api,0,(home[0]),(home[1]),(home[2] + aprox),(home[3]),1)
 

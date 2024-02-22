@@ -45,9 +45,9 @@ class MyHandler(FileSystemEventHandler):
             return
         elif event.src_path.endswith(".txt"):
             print(f"Novo arquivo criado: {event.src_path}")
-            str_pub = event.src_path.replace("C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
+            #str_pub = event.src_path.replace("C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
             #Adicionar diretorio do computador de mesa
-            #str_pub = event.src_path.replace("C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log%%","")
+            str_pub = event.src_path.replace("C:\\Users\\Digital Twin\\Documents\\GitHub\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
             str_pub = str_pub.replace(".txt", "")
             str_pub = str_pub.replace(".",",")
             #str_pub = str_pub.replace("-", ":")
@@ -88,8 +88,8 @@ def vigiar_pasta(pasta):
         observer.join()
 
 if __name__ == "__main__":
-    #pasta_vigilancia = "C:\\Users\\Digital Twin\\Documents\\GitHub\\DEMO_DT\\Position_tracker\\Logs"
-    pasta_vigilancia = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs"
+    pasta_vigilancia = "C:\\Users\\Digital Twin\\Documents\\GitHub\\DEMO_DT\\Position_tracker\\Logs"
+    #pasta_vigilancia = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs"
     vigiar_pasta(pasta_vigilancia)
     
 
