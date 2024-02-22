@@ -43,16 +43,28 @@ def update():
     time.sleep(1)
 
 space = "%%"
-#diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
-diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
+diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
+#diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
 data_hora_atual = datetime.now()
 formato_data_hora = "%Y-%m-%d_%H-%M-%S"
 timestamp = data_hora_atual.strftime(formato_data_hora)
 diretorio_novo =  diretorio.replace("log", "") + "Logs%%" + timestamp + ".txt"
 
+ponto_esteira = [113.0719, -177.6358, 38.6852, -75.2771]
+home = [223.0752, 2.4736, 67.9859, 0]
+montagem = [287.5588 , 3.0321 , 38.6762 , 10.6513]
+montagemtampa = [287.0620 , 2.6663 , 56.7805 , 7.4995]
+tampa1 = [190.5303 , 72.3327 , 23.4604 , 8.6788]
+peca1 = [188.3365 , 178.3896 , 36.2875 , -35.9722]
+
+azul1 = [-81.6309 , -165.2486 , 24.5483 , -90]
+vermelha1 = [-14.8509 , -165.2496, 26.1557, -128.3200]
+insere = [286.3870 ,1.4466, 67.1643 , -11.7400]
+retirapronta = [286.3913 , 2.6706 , 34.3566 , -78.5320]
+
 log = open(diretorio_novo, 'w+')
 
-rotina = 0
+rotina = 1
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
 #adicionar rotação na rotina 2
@@ -60,12 +72,14 @@ rotina = 0
 #rotina 4 = simulação de falha com o potênciometro
 #rotina 5 = acionamento do ciclo de 1 peça
 def abregarra():
+    global string_garra
     dType.SetWAITCmdEx(api, 500, 1)
     dType.SetEndEffectorGripperEx(api, 1, 0)
     dType.SetWAITCmdEx(api, 500, 1)
     string_garra = "GA"
 
 def fechagarra():
+    global string_garra
     dType.SetWAITCmdEx(api, 500, 1)
     dType.SetEndEffectorGripperEx(api, 1, 1)
     dType.SetWAITCmdEx(api, 500 ,  1)

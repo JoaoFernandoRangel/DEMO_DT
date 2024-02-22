@@ -68,7 +68,7 @@ def on_press(key):
     if key == keyboard.Key.esc:
         print("Tecla Esc pressionada. Removendo arquivos e encerrando o programa.")
         delete_files_with_prefix(pasta_vigilancia, "log%%")
-        client.publish(topico, "Movimentação terminada", 1)
+        #client.publish(topico, "Movimentação terminada", 1)
         observer.stop()
 
 def vigiar_pasta(pasta):
