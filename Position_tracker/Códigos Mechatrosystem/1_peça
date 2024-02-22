@@ -23,35 +23,7 @@ def update():
     
   
     time.sleep(1)
-	
-def update_abre():
-    data_hora_atual = datetime.now()
-    formato_data_hora = "%H-%M-%S"
-    timestamp1 = data_hora_atual.strftime(formato_data_hora)
-    string_garra = "abre-garra"
-    # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
-    novo_arquivo = diretorio + space + timestamp1 + space + string_garra + ".txt"
-    
-    with open(novo_arquivo, "w+") as x:
-        x.write(string_garra)
-        print('posicao escrita')
-
-    log.write(string_garra)  # Corrected indentation
-    time.sleep(1)
-	
-def update_fecha():
-    data_hora_atual = datetime.now()
-    formato_data_hora = "%H-%M-%S"
-    timestamp1 = data_hora_atual.strftime(formato_data_hora)
-    string_garra = "fecha-garra"
-    # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
-    novo_arquivo = diretorio + space + timestamp1 + space + string_garra + ".txt"
-    log.write(string_garra)
-    with open(novo_arquivo, "w+") as x:
-        x.write(string_garra)
-        print('posicao escrita')
-    time.sleep(1)
-	
+		
 
 space = "%%"
 #diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
@@ -99,16 +71,16 @@ def teste():
 
 
 def abregarra():
-	dType.SetWAITCmdEx(api, 500, 1)
-	dType.SetEndEffectorGripperEx(api, 1, 0)
-	dType.SetWAITCmdEx(api, 500, 1)
-	update_abre()
+    dType.SetWAITCmdEx(api, 500, 1)
+    dType.SetEndEffectorGripperEx(api, 1, 0)
+    dType.SetWAITCmdEx(api, 500, 1)
+    string_garra = "GA"
 
 def fechagarra():
-	dType.SetWAITCmdEx(api, 500, 1)
-	dType.SetEndEffectorGripperEx(api, 1, 1)
-	dType.SetWAITCmdEx(api, 500 ,  1)
-	update_fecha()
+    dType.SetWAITCmdEx(api, 500, 1)
+    dType.SetEndEffectorGripperEx(api, 1, 1)
+    dType.SetWAITCmdEx(api, 500 ,  1)
+    string_garra = "GF"
 
 
 def configura():
