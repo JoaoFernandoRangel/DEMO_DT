@@ -3,9 +3,12 @@ from time import sleep
 from datetime import datetime
 import os
 import math
+pc = "jf" #mudar para algum outro valor quando for usar o pc do lab
 space = "%%"
-#diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
-diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
+if (pc=="jf"):
+    diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
+else:
+    diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
 data_hora_atual = datetime.now()
 formato_data_hora = "%Y-%m-%d_%H-%M-%S"
 timestamp = data_hora_atual.strftime(formato_data_hora)

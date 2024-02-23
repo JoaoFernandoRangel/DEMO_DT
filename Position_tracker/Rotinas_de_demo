@@ -4,6 +4,8 @@ from datetime import datetime
 import os
 import math
 
+pc = "jf"
+
 def configura():
 	global aprox
 	aprox = 30
@@ -43,8 +45,11 @@ def update():
     time.sleep(1)
 
 space = "%%"
-diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
-#diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
+
+if (pc=="jf"):
+    diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
+else:
+    diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
 data_hora_atual = datetime.now()
 formato_data_hora = "%Y-%m-%d_%H-%M-%S"
 timestamp = data_hora_atual.strftime(formato_data_hora)
@@ -65,12 +70,14 @@ retirapronta = [286.3913 , 2.6706 , 34.3566 , -78.5320]
 log = open(diretorio_novo, 'w+')
 
 rotina = 1
+
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
 #adicionar rotação na rotina 2
 #rotina 3 = movimentação do braço com pistões
 #rotina 4 = simulação de falha com o potênciometro
 #rotina 5 = acionamento do ciclo de 1 peça
+
 def abregarra():
     global string_garra
     dType.SetWAITCmdEx(api, 500, 1)

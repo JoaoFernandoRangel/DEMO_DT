@@ -3,6 +3,8 @@ from datetime import datetime
 import os
 import math
 
+pc = "jf"
+
 def update(): 
     global garra
     pose_info_atual = dType.GetPose(api)  # Supondo que dType.GetPose(api) é uma função válida
@@ -25,8 +27,10 @@ def update():
 
 space = "%%"
 garra = "GA"  # Removed global declaration since it's not needed here
-diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
-#diretorio = "C://Users//João Fernando Rangel//Desktop//Digital Twin//DEMO_DT//Position_tracker//Logs//log"
+if (pc == "jf"):	
+	diretorio = "C://Users//João Fernando Rangel//Desktop//Digital Twin//DEMO_DT//Position_tracker//Logs//log"
+else:
+	diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
 data_hora_atual = datetime.now()
 formato_data_hora = "%Y-%m-%d_%H-%M-%S"
 timestamp = data_hora_atual.strftime(formato_data_hora)
