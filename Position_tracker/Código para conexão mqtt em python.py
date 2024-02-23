@@ -7,7 +7,6 @@ import pyttsx3
 def on_connect(client, userdata, flags, rc, properties=None):
     #print("CONNACK received with code %s." % rc)
     # Subscribe to the "idle_rx" topic when connected
-    
     topico1 = "garra"
     client.subscribe(topico1, qos=1)
 

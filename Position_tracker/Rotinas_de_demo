@@ -5,7 +5,7 @@ import os
 import math
 
 pc = "jf"
-
+string_garra = "GA"
 def configura():
 	global aprox
 	aprox = 30
@@ -25,7 +25,6 @@ def configura():
 
 def update(): 
     global string_garra
-    string_garra = "GA"
     pose_info_atual = dType.GetPose(api)  # Supondo que dType.GetPose(api) é uma função válida
     # Verifique se houve uma mudança na pose_info
     data_hora_atual = datetime.now()
@@ -42,7 +41,7 @@ def update():
         x.write(string_Print)
         print('posicao escrita')
     # Atualize a pose_info_anterior
-    time.sleep(1)
+    time.sleep(0.5)
 
 space = "%%"
 
@@ -69,7 +68,7 @@ retirapronta = [286.3913 , 2.6706 , 34.3566 , -78.5320]
 
 log = open(diretorio_novo, 'w+')
 
-rotina = 1
+rotina = 2
 
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
@@ -92,26 +91,30 @@ def fechagarra():
     dType.SetWAITCmdEx(api, 500 ,  1)
     string_garra = "GF"
 
-def rotina2():
-    dType.SetPTPCommonParamsEx(api,20,20,1)	
+def rotina2(): #Faz uma forma geometrica simples e abre e fecha a garra
+    dType.SetPTPCommonParamsEx(api,25,25,1)
+    update()	
+    abregarra()
     update()
-    dType.SetPTPCmdEx(api,0,home[0],home[1],home[2],home[3],1)
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1) #Home
     update()
-    dType.SetPTPCmdEx(api,2,(azul1[0]),(azul1[1]),(azul1[2]),azul1[3],1)
+    dType.SetPTPCmdEx(api,1,home[0],(home[1]-60),(home[2]+50),(home[3]+60),1) #Vertice A
     update()
-    fechagarra()	
+    fechagarra()
     update()
-    dType.SetPTPCmdEx(api,2,(azul1[0]),(azul1[1]),(azul1[2] + 15),azul1[3],1)	
-    update()
-    dType.SetPTPCmdEx(api,1 ,35 ,-186.3 ,94, -69 ,1)
-    update()
-    dType.SetPTPCommonParamsEx(api,20,20,1)
-    dType.SetPTPCmdEx(api,0,home[0],home[1],home[2],home[3],1)
-    update()
-    dType.SetPTPCommonParamsEx(api,5,5,1)
-    dType.SetPTPCmdEx(api,0,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
+    dType.SetPTPCmdEx(api,1,home[0],(home[1]-60),(home[2]-20),(home[3]-60),1) #Vértice B
     update()
     abregarra()
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],(home[1]+120),(home[2]-20),(home[3]+60),1) #Vértice C
+    update()
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],(home[1]+120),(home[2]+50),home[3],1) #Vértice D
+    update()
+    abregarra()
+    update()
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1) #Home
     update()
 
 
@@ -124,7 +127,7 @@ elif (rotina==1):
         update()
 elif (rotina==2):
     print('rotina 2')
-    for count in range(10):
+    for count in range(2):
         rotina2()
 elif (rotina==3):
     print('rotina 3')
