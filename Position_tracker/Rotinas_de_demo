@@ -72,7 +72,6 @@ rotina = 2
 
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
-#adicionar rotação na rotina 2
 #rotina 3 = movimentação do braço com pistões
 #rotina 4 = simulação de falha com o potênciometro
 #rotina 5 = acionamento do ciclo de 1 peça
@@ -98,20 +97,21 @@ def rotina2(): #Faz uma forma geometrica simples e abre e fecha a garra
     update()
     dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1) #Home
     update()
-    dType.SetPTPCmdEx(api,1,home[0],(home[1]-60),(home[2]+50),(home[3]+60),1) #Vertice A
-    update()
-    fechagarra()
-    update()
-    dType.SetPTPCmdEx(api,1,home[0],(home[1]-60),(home[2]-20),(home[3]-60),1) #Vértice B
-    update()
-    abregarra()
-    update()
-    dType.SetPTPCmdEx(api,1,home[0],(home[1]+120),(home[2]-20),(home[3]+60),1) #Vértice C
-    update()
-    fechagarra()
-    update()
-    dType.SetPTPCmdEx(api,1,home[0],(home[1]+120),(home[2]+50),home[3],1) #Vértice D
-    update()
+    for count in range(2):
+        dType.SetPTPCmdEx(api,1,home[0],(home[1]-60),(home[2]+50),(home[3]+60),1) #Vertice A
+        update()
+        fechagarra()
+        update()
+        dType.SetPTPCmdEx(api,1,home[0],(home[1]-60),(home[2]-20),(home[3]-60),1) #Vértice B
+        update()
+        abregarra()
+        update()
+        dType.SetPTPCmdEx(api,1,home[0],(home[1]+120),(home[2]-20),(home[3]+60),1) #Vértice C
+        update()
+        fechagarra()
+        update()
+        dType.SetPTPCmdEx(api,1,home[0],(home[1]+120),(home[2]+50),home[3],1) #Vértice D
+        update()
     abregarra()
     update()
     dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1) #Home
@@ -122,16 +122,21 @@ def rotina2(): #Faz uma forma geometrica simples e abre e fecha a garra
 if (rotina==0):
     print('rotina 0')
 elif (rotina==1):
+#rotina 1 = mover o robo com a mão e fazer a Unity copiar
     print('rotina 1')
     while True:
         update()
 elif (rotina==2):
+#rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
     print('rotina 2')
     for count in range(2):
         rotina2()
 elif (rotina==3):
+#rotina 3 = movimentação do braço com pistões
     print('rotina 3')
 elif (rotina==4):
+#rotina 4 = simulação de falha com o potênciometro
     print('rotina 4')
 elif (rotina==5):
+#rotina 5 = acionamento do ciclo de 1 peça
     print('rotina 5')
