@@ -4,7 +4,7 @@ from datetime import datetime
 import os
 import math
 
-pc = "jf"
+pc = "jf" #mudar para outra coisa quando estiver no pc do 204
 string_garra = "GA"
 def configura():
 	global aprox
@@ -24,6 +24,7 @@ def configura():
 	dType.SetIOMultiplexingEx(api, 13, 1, 1)
 
 def update(): 
+    log = open(diretorio_novo, 'w+')
     global string_garra
     pose_info_atual = dType.GetPose(api)  # Supondo que dType.GetPose(api) é uma função válida
     # Verifique se houve uma mudança na pose_info
@@ -41,6 +42,7 @@ def update():
         x.write(string_Print)
         print('posicao escrita')
     # Atualize a pose_info_anterior
+    log.close()
     time.sleep(0.5)
 
 space = "%%"
@@ -66,7 +68,6 @@ vermelha1 = [-14.8509 , -165.2496, 26.1557, -128.3200]
 insere = [286.3870 ,1.4466, 67.1643 , -11.7400]
 retirapronta = [286.3913 , 2.6706 , 34.3566 , -78.5320]
 
-log = open(diretorio_novo, 'w+')
 
 rotina = 2
 
@@ -140,3 +141,7 @@ elif (rotina==4):
 elif (rotina==5):
 #rotina 5 = acionamento do ciclo de 1 peça
     print('rotina 5')
+
+
+
+

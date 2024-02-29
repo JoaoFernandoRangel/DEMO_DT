@@ -32,7 +32,7 @@ client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
 client.username_pw_set("position_tracker", "Digital1")
 client.connect("dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud", 8883)
 topico = "xyzr" 
-pc = "jf"
+pc = "jf" # Mudar para outra coisa quando estiver no pc do 204
 
 
 class MyHandler(FileSystemEventHandler):
@@ -71,7 +71,7 @@ def on_press(key):
         print("Tecla Esc pressionada. Removendo arquivos e encerrando o programa.")
         delete_files_with_prefix(pasta_vigilancia, "log%%")
         #client.publish(topico, "Movimentação terminada", 1)
-        observer.stop()
+        #observer.stop()
 
 def vigiar_pasta(pasta):
     event_handler = MyHandler(pasta)
@@ -87,7 +87,9 @@ def vigiar_pasta(pasta):
                 time.sleep(1)
         except KeyboardInterrupt:
             observer.stop()
-        observer.join()
+
+# observer.join()  # Remova esta linha para permitir que o programa continue após a remoção dos arquivos
+
 
 if __name__ == "__main__":
     if pc == "jf":
