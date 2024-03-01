@@ -32,7 +32,7 @@ client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
 client.username_pw_set("position_tracker", "Digital1")
 client.connect("dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud", 8883)
 topico = "xyzr" 
-pc = "j1f" # Se no notebook de João usar jf
+pc = "jf" # Se no notebook de João usar jf
 
 class MyHandler(FileSystemEventHandler):
     def __init__(self, folder):

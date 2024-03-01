@@ -4,9 +4,19 @@ from datetime import datetime
 import os
 import math
 
-pc = "jf1" #mudar para outra coisa quando estiver no pc do 204
+
+rotina = 1
+
+#rotina 1 = mover o robo com a mão e fazer a Unity copiar
+#rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
+#rotina 3 = movimentação do braço com pistões
+#rotina 4 = simulação de falha com o potênciometro
+#rotina 5 = acionamento do ciclo de 1 peça
+
+pc = "jf" #mudar para outra coisa quando estiver no pc do 204
 string_garra = "GA"
 space = "%%"
+
 ###########################################
 ###########################################
 ###########################################
@@ -43,6 +53,7 @@ def configura():
 def update(): 
     #log = open(diretorio_novo, 'w+')
     global string_garra
+    string_garra = "GF"
     pose_info_atual = dType.GetPose(api)  # Supondo que dType.GetPose(api) é uma função válida
     # Verifique se houve uma mudança na pose_info
     data_hora_atual = datetime.now()
@@ -76,14 +87,6 @@ vermelha1 = [-14.8509 , -165.2496, 26.1557, -128.3200]
 insere = [286.3870 ,1.4466, 67.1643 , -11.7400]
 retirapronta = [286.3913 , 2.6706 , 34.3566 , -78.5320]
 
-
-rotina = 2
-
-#rotina 1 = mover o robo com a mão e fazer a Unity copiar
-#rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
-#rotina 3 = movimentação do braço com pistões
-#rotina 4 = simulação de falha com o potênciometro
-#rotina 5 = acionamento do ciclo de 1 peça
 
 def abregarra():
     global string_garra
@@ -133,6 +136,7 @@ if (rotina==0):
 elif (rotina==1):
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
     print('rotina 1')
+    #fechagarra()
     while True:
         update()
 elif (rotina==2):

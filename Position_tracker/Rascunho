@@ -1,41 +1,11 @@
 import time
-from datetime import datetime
-pc = "jf"
-space = "%%"
-garra = "GA"  # Removed global declaration since it's not needed here
-if (pc == "jf"):	
-	diretorio = "C://Users//João Fernando Rangel//Desktop//Digital Twin//DEMO_DT//Position_tracker//Logs//log"
-else:
-	diretorio = "C://Users//Digital Twin//Documents//GitHub//DEMO_DT//Position_tracker//Logs//log"
-data_hora_atual = datetime.now()
-formato_data_hora = "%Y-%m-%d_%H-%M-%S"
-timestamp = data_hora_atual.strftime(formato_data_hora)
-diretorio_novo = diretorio + "Logs__" + timestamp + ".txt"
-pose_info_atual = [1,1,1,1]
-log = open(diretorio_novo, 'w+')
-def update(): 
-    global pose_info_atual
-    global garra
-    #pose_info_atual = dType.GetPose(api)  # Supondo que dType.GetPose(api) é uma função válida
-    
-    # Verifique se houve uma mudança na pose_info
-    data_hora_atual = datetime.now()
-    formato_data_hora = "%H-%M-%S"
-    timestamp1 = data_hora_atual.strftime(formato_data_hora)
-    string = str(round(pose_info_atual[0], 3)) + space + str(round(pose_info_atual[1], 3)) + space + str(
-        round(pose_info_atual[2], 3)) + space + str(round(pose_info_atual[3], 3))
-    string_Print = str(timestamp1) + space + string + "\n"
-    log.write(string_Print)    
-    # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
-    novo_arquivo = diretorio + space + timestamp1 + space + string.replace(" ", "_") + space + garra + ".txt"
-    with open(novo_arquivo, "w+") as x:
-        x.write(string_Print)
-        print('posicao escrita')
-    # Atualize a pose_info_anterior
-    time.sleep(1)
 
-for i in range(5):
-      update()
-      print(i)
-      pose_info_atual = [ 1+i, 1+2*i, 1+2*i, 1+2*i]
-      time.sleep(1)
+def current_milli_time():
+    return round(time.time() * 1000)
+
+um = current_milli_time()
+print(um)
+time.sleep(2)
+dois = current_milli_time()
+print(dois)
+print(dois-um)
