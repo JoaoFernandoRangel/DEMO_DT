@@ -3,15 +3,13 @@ import time
 def current_milli_time():
     return round(time.time() * 1000)
 
-um = current_milli_time()
-print(um)
-time.sleep(2)
-dois = current_milli_time()
-print(dois)
-time.sleep(2)
-tres = current_milli_time()
-print(tres)
-
-print(dois-um)
-print(tres-dois)
-print(tres-um)
+space = "%%"
+string = "log%%11-47-46%%223.112%%0.0%%40.082%%0.0%%GF%%1709650066106"
+bla = string.split('%%')
+print(bla[7])
+epoch = current_milli_time()
+print(epoch)
+dif =int(epoch) - int(bla[7])
+print(dif)
+string = string + space + str(epoch) + space + str(dif)
+print(string)

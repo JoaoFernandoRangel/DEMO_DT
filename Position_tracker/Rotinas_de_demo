@@ -4,8 +4,11 @@ from datetime import datetime
 import os
 import math
 
-
 rotina = 1
+pc = "jf1" #mudar para outra coisa quando estiver no pc do 204
+
+
+
 
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
@@ -13,7 +16,7 @@ rotina = 1
 #rotina 4 = simulação de falha com o potênciometro
 #rotina 5 = acionamento do ciclo de 1 peça
 
-pc = "jf1" #mudar para outra coisa quando estiver no pc do 204
+
 string_garra = "GA"
 space = "%%"
 
@@ -56,7 +59,7 @@ def configura():
 def update(): 
     #log = open(diretorio_novo, 'w+')
     global string_garra
-    string_garra = "GF"
+    #string_garra = "GF"
     pose_info_atual = dType.GetPose(api)  # Supondo que dType.GetPose(api) é uma função válida
     # Verifique se houve uma mudança na pose_info
     data_hora_atual = datetime.now()
@@ -69,7 +72,7 @@ def update():
     print('Posição escrita no registro de atividades') 
     epoch = current_milli_time()   
     # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
-    novo_arquivo = diretorio + space + timestamp1 + space + string.replace(" ", "_") + space + str(epoch) +".txt"
+    novo_arquivo = diretorio + space + str(epoch) + space + timestamp1 + space+ string  + ".txt" #+ space +str(epoch)
     with open(novo_arquivo, "w+") as x:
         x.write(string_Print)
         print('Novo arquivo criado')
@@ -134,14 +137,15 @@ def rotina2(): #Faz uma forma geometrica simples e abre e fecha a garra
     update()
 
 
-
+arquivos = 2
 if (rotina==0):
     print('rotina 0')
 elif (rotina==1):
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
     print('rotina 1')
     #fechagarra()
-    while True:
+    #while True:
+    for i in range(arquivos):
         update()
 elif (rotina==2):
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra

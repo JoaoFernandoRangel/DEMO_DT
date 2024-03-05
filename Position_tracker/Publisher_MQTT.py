@@ -7,6 +7,11 @@ import winsound
 import paho.mqtt.client as paho
 from paho import mqtt
 import pyttsx3
+import string
+
+pc = "jf1" # Se no notebook de João usar jf
+teste = 1 #se estiver em teste manter 1
+
 
 def on_connect(client, userdata, flags, rc, properties=None):
     #print("CONNACK received with code %s." % rc)
@@ -31,11 +36,14 @@ client.on_connect = on_connect
 client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
 client.username_pw_set("position_tracker", "Digital1")
 client.connect("dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud", 8883)
-topico = "xyz" 
-pc = "jf1" # Se no notebook de João usar jf
+if (teste==1):
+    topico =  "teste"
+else:
+    topico = "xyzr"
 space = "%%"
+
 def current_milli_time():
-    return round(time.time() * 1000)
+    return (time.time() * 1000)
 
 class MyHandler(FileSystemEventHandler):
     def __init__(self, folder):
@@ -46,18 +54,29 @@ class MyHandler(FileSystemEventHandler):
         if event.is_directory:
             return
         elif event.src_path.endswith(".txt"):
-            print(f"Novo arquivo criado: {event.src_path}")
+            #print(f"Novo arquivo criado: {event.src_path}")
             if (pc == "jf"):
-                str_pub = event.src_path.replace("C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
+                str_src = event.src_path.replace("C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
             #Adicionar diretorio do computador de mesa
             else:
-                str_pub = event.src_path.replace("C:\\Users\\Digital Twin\\Documents\\GitHub\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
-            str_pub = str_pub.replace(".txt", "")
-            str_pub = str_pub.replace(".",",")
-            epoch = current_milli_time()
-            str_pub = str_pub + space + "Epoch pc: " + str(epoch)
+                str_src = event.src_path.replace("C:\\Users\\Digital Twin\\Documents\\GitHub\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
+            str_0 = str(str_src)
+            print(str_0)
+            str_1 = str_0.replace(".txt", "")           
+            str_2 = str_1.replace(",",".")            
+            splited = str_2.split('%%')
+            #print(str_2)
+            #print(splited[1])
+            #print(type(splited[0]))
+            epoch = int(current_milli_time())
+            #splited_int = int(splited[0], base = 10)
+            #dif = int(epoch) - splited_int
+            #print(dif)
+            str_final = str_2 + space + str(epoch)
+            print(str_final)
             #str_pub = str_pub.replace("-", ":")
-            client.publish(topico, str_pub, 1)
+            print(str_final)
+            client.publish(topico, str_final, 1)
             self.pacote = event.src_path
 
 def delete_files_with_prefix(folder, prefix):
@@ -100,6 +119,7 @@ if __name__ == "__main__":
         pasta_vigilancia = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs"
     else:
         pasta_vigilancia = "C:\\Users\\Digital Twin\\Documents\\GitHub\\DEMO_DT\\Position_tracker\\Logs"
+    client.publish(topico, "a", 1)
     vigiar_pasta(pasta_vigilancia)
     
 
