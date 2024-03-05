@@ -13,7 +13,7 @@ rotina = 1
 #rotina 4 = simulação de falha com o potênciometro
 #rotina 5 = acionamento do ciclo de 1 peça
 
-pc = "jf" #mudar para outra coisa quando estiver no pc do 204
+pc = "jf1" #mudar para outra coisa quando estiver no pc do 204
 string_garra = "GA"
 space = "%%"
 
@@ -31,6 +31,9 @@ formato_data_hora = "%Y-%m-%d_%H-%M-%S"
 timestamp = data_hora_atual.strftime(formato_data_hora)
 diretorio_novo =  diretorio.replace("log", "") + "Logs%%" + timestamp + ".txt"
 log = open(diretorio_novo, 'w+')
+
+def current_milli_time():
+    return round(time.time() * 1000)
 
 
 def configura():
@@ -63,9 +66,10 @@ def update():
         round(pose_info_atual[2], 3)) + space + str(round(pose_info_atual[3], 3)) + space + string_garra
     string_Print = str(timestamp1) + space + string  + "\n"
     log.write(string_Print + "\n")
-    print('Posição escrita no registro de atividades')    
+    print('Posição escrita no registro de atividades') 
+    epoch = current_milli_time()   
     # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
-    novo_arquivo = diretorio + space + timestamp1 + space + string.replace(" ", "_") + ".txt"
+    novo_arquivo = diretorio + space + timestamp1 + space + string.replace(" ", "_") + space + str(epoch) +".txt"
     with open(novo_arquivo, "w+") as x:
         x.write(string_Print)
         print('Novo arquivo criado')

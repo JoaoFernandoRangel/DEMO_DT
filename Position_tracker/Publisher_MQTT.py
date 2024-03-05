@@ -31,8 +31,11 @@ client.on_connect = on_connect
 client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
 client.username_pw_set("position_tracker", "Digital1")
 client.connect("dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud", 8883)
-topico = "xyzr" 
-pc = "jf" # Se no notebook de João usar jf
+topico = "xyz" 
+pc = "jf1" # Se no notebook de João usar jf
+space = "%%"
+def current_milli_time():
+    return round(time.time() * 1000)
 
 class MyHandler(FileSystemEventHandler):
     def __init__(self, folder):
@@ -51,6 +54,8 @@ class MyHandler(FileSystemEventHandler):
                 str_pub = event.src_path.replace("C:\\Users\\Digital Twin\\Documents\\GitHub\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
             str_pub = str_pub.replace(".txt", "")
             str_pub = str_pub.replace(".",",")
+            epoch = current_milli_time()
+            str_pub = str_pub + space + "Epoch pc: " + str(epoch)
             #str_pub = str_pub.replace("-", ":")
             client.publish(topico, str_pub, 1)
             self.pacote = event.src_path
