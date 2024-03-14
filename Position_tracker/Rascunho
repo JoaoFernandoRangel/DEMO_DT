@@ -105,7 +105,7 @@ if (ponto_fixo == "demo"):
         string_garra = "GA"
         client.publish(topico, faz_string(home).replace(str(ponto), str(virg)), 1)
 else:
-    for i in range(50):
+    for i in range(500):
         manda_epoch()
         client.publish(topico, string_epoch, 1)
         #print(string_epoch)

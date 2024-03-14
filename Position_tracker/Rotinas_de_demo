@@ -7,9 +7,6 @@ import math
 rotina = 1
 pc = "jf1" #mudar para outra coisa quando estiver no pc do 204
 
-
-
-
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
 #rotina 3 = movimentação do braço com pistões
@@ -22,9 +19,6 @@ space = "%%"
 
 ###########################################
 ###########################################
-###########################################
-###########################################
-
 if (pc=="jf"):
     diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
 else:
@@ -93,7 +87,44 @@ azul1 = [-81.6309 , -165.2486 , 24.5483 , -90]
 vermelha1 = [-14.8509 , -165.2496, 26.1557, -128.3200]
 insere = [286.3870 ,1.4466, 67.1643 , -11.7400]
 retirapronta = [286.3913 , 2.6706 , 34.3566 , -78.5320]
+ponto_descarte = [0,0,0,0]
+ponto_pega = [0,0,0,0]
 
+
+def funcao_descarte():
+    update()
+    dType.SetPTPCmdEx(api,0,(ponto_descarte[0]),(ponto_descarte[1]),(ponto_descarte[2]),(ponto_descarte[3]),1)
+    update()
+    abregarra()
+    update()
+    
+def pega_ponto(ponto):
+	update()
+	dType.SetPTPCmdEx(api,0,(ponto[0]),(ponto[1]),(ponto[2] + aprox),(ponto[3]),1)
+	update()
+	dType.SetPTPCommonParamsEx(api,5,5,1)
+	update()
+	dType.SetPTPCmdEx(api,1,(ponto[0]),(ponto[1]),(ponto[2]),(ponto[3]),1)
+	update()
+	#dType.SetPTPCommonParams(api, velocityRatio, accelerationRatio, isQueued=0)
+	fechagarra()
+	update()
+	dType.SetPTPCmdEx(api,1,(ponto[0]),(ponto[1]),(ponto[2] + aprox),(ponto[3]),1)
+	update()
+
+def pegaesteira():
+	update()
+	dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+	update()
+	dType.SetPTPCommonParamsEx(api,5,5,1)
+	update()
+	dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
+	update()
+	#dType.SetPTPCommonParams(api, velocityRatio, accelerationRatio, isQueued=0)
+	fechagarra()
+	update()
+	dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+	update()
 
 def abregarra():
     global string_garra
@@ -136,6 +167,115 @@ def rotina2(): #Faz uma forma geometrica simples e abre e fecha a garra
     dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1) #Home
     update()
 
+def move_para_ponto(ponto_num,ponto_id):
+    if (ponto_id == "1"):
+        update()
+        dType.SetPTPCmdEx(api,1,ponto_num[0],(ponto_num[1]),(ponto_num[2]),ponto_num[3],1) #Home
+        update()   
+    elif (ponto_id == "A"):
+        update()
+        dType.SetPTPCmdEx(api,1,ponto_num[0],(ponto_num[1]-60),(ponto_num[2]+50),ponto_num[3]+60,1) #Vértice A
+        update()
+    elif (ponto_id == "B"):
+        update()
+        dType.SetPTPCmdEx(api,1,ponto_num[0],(ponto_num[1]-60),(ponto_num[2]-20),(ponto_num[3]-60),1) #Vértice B
+        update()
+    elif (ponto_id == "C"):
+        update()
+        dType.SetPTPCmdEx(api,1,ponto_num[0],(ponto_num[1]+120),(ponto_num[2]-20),(ponto_num[3]+60),1) #Vértice C
+        update()
+    elif (ponto_id == "d"):
+        update()
+        dType.SetPTPCmdEx(api,1,ponto_num[0],(ponto_num[1]+120),(ponto_num[2]+50),ponto_num[3],1) #Vértice D
+        update()
+
+
+def rotina3(vezes):
+    print("Iniciando rotina 3")
+    time.sleep(5)
+    move_para_ponto(home, "1")
+    for i in range(vezes):
+        dType.SetIODOEx(api, 18, 1, 1) #Envia o pistão A
+        move_para_ponto(home, "A")
+        dType.SetIODOEx(api, 14, 1, 1) #Envia o pistão B
+        move_para_ponto(home, "B")
+        dType.SetIODOEx(api, 15, 0, 1) #Retorna o pistão C
+        move_para_ponto(home, "C")
+        dType.SetIODOEx(api, 6, 1, 1) #Envia o pistão D
+        move_para_ponto(home, "D")
+        time.sleep(3)
+        move_para_ponto(home, "A")
+        dType.SetIODOEx(api, 14, 0, 1) #Retorna o pistão B
+        move_para_ponto(home, "C")
+        dType.SetIODOEx(api, 15, 1, 1) #Avança o pistão C
+        move_para_ponto(home, "B")
+        time.sleep(3)
+        move_para_ponto(home, "D")
+        dType.SetIODOEx(api, 18, 0, 1) #Retorna o pistão A
+        move_para_ponto(home, "A")
+        dType.SetIODOEx(api, 14, 0, 1) #Retorna o pistão B
+        move_para_ponto(home, "B")
+        dType.SetIODOEx(api, 15, 0, 1) #Retorna o pistão C
+        move_para_ponto(home, "D")
+        dType.SetIODOEx(api, 6, 0, 1) #Retorna o pistão D
+        move_para_ponto(home, "C")
+        time.sleep(3)
+        move_para_ponto(home, "A")
+        dType.SetIODOEx(api, 18, 1, 1) #Avança o pistão A
+        move_para_ponto(home, "B")
+        time.sleep(3)
+        move_para_ponto(home, "C")
+        dType.SetIODOEx(api, 18, 0, 1) #Retorna o pistão A
+        move_para_ponto(home, "D")
+        time.sleep(3)
+        move_para_ponto(home, "A")
+        dType.SetIODOEx(api, 14, 1, 1) #Avança o pistão B
+        move_para_ponto(home, "D")
+        time.sleep(3)
+        move_para_ponto(home, "B")
+        dType.SetIODOEx(api, 14, 0, 1) #Retorna o pistão B
+        move_para_ponto(home, "C")
+        time.sleep(3)
+        move_para_ponto(home, "D")
+        dType.SetIODOEx(api, 15, 1, 1) #Avança o pistão C
+        move_para_ponto(home, "A")
+        time.sleep(3)
+        move_para_ponto(home, "B")
+        dType.SetIODOEx(api, 15, 0, 1) #Retorna o pistão C
+        move_para_ponto(home, "C")
+        time.sleep(3)
+        move_para_ponto(home, "D")
+        dType.SetIODOEx(api, 6, 1, 1) #Avança o pistão D
+        move_para_ponto(home, "A")
+        time.sleep(3)
+        move_para_ponto(home, "D")
+        dType.SetIODOEx(api, 6, 0, 1) #Retorna o pistão D
+        move_para_ponto(home, "1")
+        time.sleep(3)
+
+def rotina4(vezes, ponto):
+    print("Rotina 4")
+    time.sleep(3)
+    for i in range(vezes):
+        if (ponto == "esteira"):
+            pegaesteira()
+            time.sleep(10)
+            funcao_descarte()
+            time.sleep(10)
+        else:
+            pega_ponto(ponto_pega)
+            time.sleep(10)
+            funcao_descarte()
+            time.sleep(10)
+            
+
+
+
+
+        
+        
+
+
 
 arquivos = 2
 if (rotina==0):
@@ -155,12 +295,12 @@ elif (rotina==2):
 elif (rotina==3):
 #rotina 3 = movimentação do braço com pistões
     print('rotina 3')
+    rotina3(5)    
 elif (rotina==4):
 #rotina 4 = simulação de falha com o potênciometro
     print('rotina 4')
-elif (rotina==5):
-#rotina 5 = acionamento do ciclo de 1 peça
-    print('rotina 5')
+    rotina4(5)
+
 
 log.close()
 
