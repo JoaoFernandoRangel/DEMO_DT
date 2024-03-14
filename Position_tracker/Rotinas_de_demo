@@ -140,6 +140,17 @@ def fechagarra():
     dType.SetWAITCmdEx(api, 500 ,  1)
     string_garra = "GF"
 
+def rotina1(vezes, escolha):
+    if escolha == 1:
+        for i in range(vezes):
+            if (i%20 == 0):
+                fechagarra()
+            else:
+                abregarra()
+            update()
+
+
+
 def rotina2(): #Faz uma forma geometrica simples e abre e fecha a garra
     dType.SetPTPCommonParamsEx(api,25,25,1)
     update()	
@@ -270,23 +281,13 @@ def rotina4(vezes, ponto):
             
 
 
-
-
-        
-        
-
-
-
-arquivos = 2
+turnos = 200
 if (rotina==0):
     print('rotina 0')
 elif (rotina==1):
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
     print('rotina 1')
-    #fechagarra()
-    #while True:
-    for i in range(arquivos):
-        update()
+    rotina1(turnos, 1)
 elif (rotina==2):
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
     print('rotina 2')

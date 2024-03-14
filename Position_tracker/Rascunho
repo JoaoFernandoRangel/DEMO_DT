@@ -40,16 +40,15 @@ def manda_epoch():
     log = "log"
     string_data = "11-47-46%%223.112%%0.0%%40.082%%0.0%%GF"
     string_inicio = str(epoch) + space
-    string_epoch = string_inicio + string_data + space  + str(epoch + random.randint(1,1000))
-     
-    print(string_epoch)
+    string_epoch = string_inicio + string_data + space  + str(epoch + random.randint(1,1000))     
+    #print(string_epoch)
 
 client = paho.Client(client_id="", userdata=None, protocol=paho.MQTTv5)
 client.on_connect = on_connect
 client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
 client.username_pw_set("position_tracker", "Digital1")
 client.connect("dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud", 8883)
-
+client.loop_start()
 
 ponto_esteira = [113.0719, -177.6358, 38.6852, -75.2771]
 home = [223.0752, 2.4736, 67.9859, 90]
@@ -107,7 +106,8 @@ if (ponto_fixo == "demo"):
 else:
     for i in range(500):
         manda_epoch()
-        client.publish(topico, string_epoch, 1)
+        client.publish(topico, string_epoch + "    "+ str(i), 1)
+        print(string_epoch)
         #print(string_epoch)
         epoch = current_milli_time()
         time.sleep(1)
