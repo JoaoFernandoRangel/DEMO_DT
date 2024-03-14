@@ -141,14 +141,16 @@ def fechagarra():
     string_garra = "GF"
 
 def rotina1(vezes, escolha):
-    if escolha == 1:
+    if escolha == 0:
         for i in range(vezes):
             if (i%20 == 0):
                 fechagarra()
             else:
                 abregarra()
             update()
-
+    else:
+        while (True):
+            update()
 
 
 def rotina2(): #Faz uma forma geometrica simples e abre e fecha a garra
@@ -264,7 +266,7 @@ def rotina3(vezes):
         move_para_ponto(home, "1")
         time.sleep(3)
 
-def rotina4(vezes, ponto):
+def rotina4(vezes, ponto): #teste de captura de copo
     print("Rotina 4")
     time.sleep(3)
     for i in range(vezes):
@@ -287,7 +289,7 @@ if (rotina==0):
 elif (rotina==1):
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
     print('rotina 1')
-    rotina1(turnos, 1)
+    rotina1(turnos, 1) # mude para 0 para abilitar abertura e fechamento da garra
 elif (rotina==2):
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
     print('rotina 2')

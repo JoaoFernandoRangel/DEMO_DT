@@ -7,7 +7,7 @@ import random
 #mude para escolher o modo de envio de mensagens para o mqtt
 #ponto_fixo = "epoch"
 
-ponto_fixo = "deamo"
+ponto_fixo = "demo"
 topico = "xyzr"
 
 
@@ -106,7 +106,7 @@ if (ponto_fixo == "demo"):
 else:
     for i in range(500):
         manda_epoch()
-        client.publish(topico, string_epoch + "    "+ str(i), 1)
+        client.publish(topico, string_epoch, 1)
         print(string_epoch)
         #print(string_epoch)
         epoch = current_milli_time()
