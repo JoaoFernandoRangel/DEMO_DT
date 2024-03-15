@@ -12,6 +12,8 @@ pc = "jf1" #mudar para outra coisa quando estiver no pc do 204
 #rotina 3 = movimentação do braço com pistões
 #rotina 4 = simulação de falha com o potênciometro
 #rotina 5 = acionamento do ciclo de 1 peça
+#teste
+
 
 
 string_garra = "GA"
