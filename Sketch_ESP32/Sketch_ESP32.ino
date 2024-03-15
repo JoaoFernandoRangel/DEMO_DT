@@ -17,8 +17,8 @@ int sensores[8] = {14,16,17,18,22,23,19,21}; //{pist A Ini, pist A Fim, pist B I
 #define LED 9
 
 //Define informacoes da rede
-#define WLAN_SSID      "REDE"
-#define WLAN_PASS      "12345678"
+#define WLAN_SSID      "CampusVitoria"
+#define WLAN_PASS      ""
 
 // Cria um WiFiClient class para utilizar no MQTT server.
 WiFiClientSecure client;
@@ -173,7 +173,7 @@ void loop() {
       String formattedDate = getFormattedDate(ntp);
       String msg = "%%PISTAO%%";
       String msg2 = "%%GARRA%%"; 
-      msg += formattedDate + hora + space;//pistoes
+      msg += formattedDate +space+ hora + space;//pistoes
       msg2 += hora + space + formattedDate + space;
     //Adicionando leituras dos sensores dos pistoes
     
