@@ -9,8 +9,8 @@ from paho import mqtt
 import pyttsx3
 import string
 
-pc = "jf1" # Se no notebook de João usar jf
-teste = 1 #se estiver em teste manter 1
+pc = "jf" # Se no notebook de João usar jf
+teste = 12 #se estiver em teste manter 1
 
 
 def on_connect(client, userdata, flags, rc, properties=None):

@@ -5,7 +5,7 @@ import os
 import math
 
 rotina = 1
-pc = "jf1" #mudar para outra coisa quando estiver no pc do 204
+pc = "jf" #mudar para outra coisa quando estiver no pc do 204
 
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
@@ -200,7 +200,7 @@ def move_para_ponto(ponto_num,ponto_id):
         update()
         dType.SetPTPCmdEx(api,1,ponto_num[0],(ponto_num[1]+120),(ponto_num[2]-20),(ponto_num[3]+60),1) #Vértice C
         update()
-    elif (ponto_id == "d"):
+    elif (ponto_id == "D"):
         update()
         dType.SetPTPCmdEx(api,1,ponto_num[0],(ponto_num[1]+120),(ponto_num[2]+50),ponto_num[3],1) #Vértice D
         update()
@@ -238,6 +238,8 @@ def rotina3(vezes):
         time.sleep(3)
         move_para_ponto(home, "A")
         dType.SetIODOEx(api, 18, 1, 1) #Avança o pistão A
+        dType.SetIODOEx(api, 14, 1, 1) #Avança o pistão B
+        dType.SetIODOEx(api, 6, 1, 1) #Retorna o pistão D
         move_para_ponto(home, "B")
         time.sleep(3)
         move_para_ponto(home, "C")
@@ -245,7 +247,7 @@ def rotina3(vezes):
         move_para_ponto(home, "D")
         time.sleep(3)
         move_para_ponto(home, "A")
-        dType.SetIODOEx(api, 14, 1, 1) #Avança o pistão B
+        dType.SetIODOEx(api, 18, 1, 1) #Avança o pistão A
         move_para_ponto(home, "D")
         time.sleep(3)
         move_para_ponto(home, "B")
@@ -285,7 +287,7 @@ def rotina4(vezes, ponto): #teste de captura de copo
             time.sleep(10)
             
 
-
+configura() #declara as funções para manipulação dos pistões
 turnos = 200
 if (rotina==0):
     print('rotina 0')
