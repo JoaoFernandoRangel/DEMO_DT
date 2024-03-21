@@ -5,15 +5,13 @@ import os
 import math
 
 rotina = 1
-pc = "jf" #mudar para outra coisa quando estiver no pc do 204
+pc = "jf1" #mudar para outra coisa quando estiver no pc do 204
 
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
 #rotina 3 = movimentação do braço com pistões
 #rotina 4 = simulação de falha com o potênciometro
 #rotina 5 = acionamento do ciclo de 1 peça
-#teste
-#teste commit
 
 
 
@@ -22,6 +20,7 @@ space = "%%"
 
 ###########################################
 ###########################################
+
 if (pc=="jf"):
     diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
 else:
@@ -90,9 +89,9 @@ azul1 = [-81.6309 , -165.2486 , 24.5483 , -90]
 vermelha1 = [-14.8509 , -165.2496, 26.1557, -128.3200]
 insere = [286.3870 ,1.4466, 67.1643 , -11.7400]
 retirapronta = [286.3913 , 2.6706 , 34.3566 , -78.5320]
-ponto_descarte = [0,0,0,0]
-ponto_pega = [0,0,0,0]
-
+ponto_descarte = [146.3089,-105.9902,41.5474,-81.4603] #ponto para soltar o copo fora da área de trabalho.
+#ponto_pega = [0,0,0,0]
+ponto_pega = montagem
 
 def funcao_descarte():
     update()
@@ -208,6 +207,7 @@ def move_para_ponto(ponto_num,ponto_id):
 
 def rotina3(vezes):
     print("Iniciando rotina 3")
+    configura()
     time.sleep(5)
     move_para_ponto(home, "1")
     for i in range(vezes):
