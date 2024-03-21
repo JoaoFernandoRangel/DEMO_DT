@@ -1,0 +1,19 @@
+import ntplib as ntp
+import datetime as dt
+import time
+
+client = ntp.NTPClient()
+
+i = 0
+while True:
+    time.sleep(5)
+    response = client.request('europe.pool.ntp.org', version=3)
+    time.sleep(5)
+    response1 = client.request('europe.pool.ntp.org', version=3)
+
+    epoch_time_before = response.tx_time*1000 #transforma para milissegundos
+    epoch_time_after = response1.tx_time*1000
+    print("----")
+    print(epoch_time_before, " menos ", epoch_time_after, " = ", epoch_time_after-epoch_time_before, "_milissegundos")
+    print("---- ", i)
+    i = i + 1

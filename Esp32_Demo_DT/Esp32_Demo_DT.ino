@@ -17,8 +17,8 @@ int sensores[8] = {14,16,17,18,22,23,19,21}; //{pist A Ini, pist A Fim, pist B I
 #define LED 9
 
 //Define informacoes da rede
-#define WLAN_SSID      "REDE"
-#define WLAN_PASS      "12345678"
+#define WLAN_SSID      "CampusVitoria"
+#define WLAN_PASS      ""
 
 // Cria um WiFiClient class para utilizar no MQTT server.
 WiFiClientSecure client;
@@ -108,12 +108,6 @@ String getFormattedDate(NTPClient& ntp) {
   int garraMax = 4095;         //valor maximo de abertura da garra
 */
 
-
-
-
-
-
-
 void setup() {
   //Iniciando  
   Serial.begin(19200);
@@ -158,7 +152,7 @@ void setup() {
    ntp.begin();
    ntp.setTimeOffset(-10800);//corrige para fuso horário     
 }
-String hora,date;
+String hora,date, epoch;
 String space = "%%";
 
 
@@ -170,6 +164,7 @@ void loop() {
     //Criacao da mensagem
       int valores[8];
       hora = ntp.getFormattedTime();
+      epoch = ntp.getEpochTime();
       String formattedDate = getFormattedDate(ntp);
       String msg = "%%PISTAO%%";
       String msg2 = "%%GARRA%%"; 
