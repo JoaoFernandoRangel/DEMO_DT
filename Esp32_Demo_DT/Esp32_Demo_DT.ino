@@ -168,8 +168,8 @@ void loop() {
       String formattedDate = getFormattedDate(ntp);
       String msg = "%%PISTAO%%";
       String msg2 = "%%GARRA%%"; 
-      msg += formattedDate + hora + space;//pistoes
-      msg2 += hora + space + formattedDate + space;
+      msg += hora + space + epoch + space + formattedDate + space;//pistoes
+      msg2 += hora + space + epoch + space + formattedDate + space; // timestamp
     //Adicionando leituras dos sensores dos pistoes
     
     for(int i = 0; i<8; i++)
@@ -180,15 +180,15 @@ void loop() {
         msg += pistao;
       } 
       msg += valores[i];
+      
     }
     //Adicionando leitura da garra(potenciomentro)
     //float valor = (analogRead(POT) - garraMin) * 100 / (garraMax - garraMin);
     int valor = analogRead(POT);
     msg2 += String(valor);
-    
-    
-    
 
+    Serial.println(msg);
+    Serial.println(msg2);
     // Publishes messages to MQTT server
     if (!mqtt.connected()) reconnect();
     mqtt.loop();
