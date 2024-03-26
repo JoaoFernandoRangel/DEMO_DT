@@ -3,16 +3,17 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from pynput import keyboard
 import time
-import winsound
 import paho.mqtt.client as paho
 from paho import mqtt
-import pyttsx3
-import string
+import ntplib as ntp
 
 pc = "jf" # Se no notebook de João usar jf
-teste = 12 #se estiver em teste manter 1
+teste = 1 #se estiver em teste manter 1
+link_comum = 'europe.pool.ntp.org'
 
+pot_enable = True
 
+#Funções para conexão em broker MQTT
 def on_connect(client, userdata, flags, rc, properties=None):
     #print("CONNACK received with code %s." % rc)
     # Subscribe to the "idle_rx" topic when connected
@@ -36,14 +37,18 @@ client.on_connect = on_connect
 client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
 client.username_pw_set("position_tracker", "Digital1")
 client.connect("dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud", 8883)
+
+client_ntp = ntp.NTPClient()
+
 if (teste==1):
     topico =  "teste"
 else:
     topico = "xyzr"
 space = "%%"
 
-def current_milli_time():
-    return (time.time() * 1000)
+def pega_epoch():
+    response = client_ntp.request(link_comum, version = 3)
+    return int(response.tx_time*1000)
 
 class MyHandler(FileSystemEventHandler):
     def __init__(self, folder):
@@ -65,13 +70,7 @@ class MyHandler(FileSystemEventHandler):
             str_1 = str_0.replace(".txt", "")           
             str_2 = str_1.replace(",",".")            
             splited = str_2.split('%%')
-            #print(str_2)
-            #print(splited[1])
-            #print(type(splited[0]))
-            epoch = int(current_milli_time())
-            #splited_int = int(splited[0], base = 10)
-            #dif = int(epoch) - splited_int
-            #print(dif)
+            epoch = pega_epoch()
             str_final = str_2 + space + str(epoch)
             print(str_final)
             #str_pub = str_pub.replace("-", ":")
@@ -122,4 +121,7 @@ if __name__ == "__main__":
     client.publish(topico, "a", 1)
     vigiar_pasta(pasta_vigilancia)
     
+
+
+
 
