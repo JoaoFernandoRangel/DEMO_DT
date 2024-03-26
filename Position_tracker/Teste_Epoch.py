@@ -39,14 +39,14 @@ topico = "garraxyzr"
 i = 0
 
 client_ntp = ntp.NTPClient()
-
+link_comum = 'europe.pool.ntp.org'
 
 
 while True:
     #time.sleep(5)
-    response = client_ntp.request('europe.pool.ntp.org', version=3)
+    response = client_ntp.request(link_comum, version=3)
     time.sleep(5)
-    response1 = client_ntp.request('europe.pool.ntp.org', version=3)
+    response1 = client_ntp.request(link_comum, version=3)
 
     epoch_time_before = response.tx_time*1000 #transforma para milissegundos
     epoch_time_after = response1.tx_time*1000
