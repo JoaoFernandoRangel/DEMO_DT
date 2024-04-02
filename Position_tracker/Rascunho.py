@@ -10,9 +10,6 @@ import random
 ponto_fixo = "demo"
 topico = "xyzr"
 
-
-
-
 def on_connect(client, userdata, flags, rc, properties=None):
     #print("CONNACK received with code %s." % rc)
     # Subscribe to the "idle_rx" topic when connected
@@ -74,7 +71,7 @@ def faz_string(ponto):
     string = str(round(ponto[0], 3)) + space + str(round(ponto[1], 3)) + space + str(
         round(ponto[2], 3)) + space + str(round(ponto[3], 3)) + space + string_garra
     string.replace(str(ponto), str(virg))
-    string =  str(epoch) + space + timestamp1 + space + string + space + str(epoch + random.randint(1,1000))
+    string =  str(epoch) + space + timestamp1 + space + string + space + str(epoch + random.randint(1,200))
     
     return string
 

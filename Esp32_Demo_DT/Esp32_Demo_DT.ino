@@ -10,15 +10,15 @@
 
 
 //Declara as portas de leitura [pull up interno]
-int sensores[8] = {14,16,17,18,22,23,19,21}; //{pist A Ini, pist A Fim, pist B Ini, ...}
-#define POT 34 //verificar se eh esse mesmo //Sensor do potenciometro
-#define ON  32
+int sensores[8] = { 14, 16, 17, 18, 22, 23, 19, 21 };  //{pist A Ini, pist A Fim, pist B Ini, ...}
+#define POT 34                                         //verificar se eh esse mesmo //Sensor do potenciometro
+#define ON 32
 #define OFF 33
 #define LED 9
 
 //Define informacoes da rede
-#define WLAN_SSID      "CampusVitoria"
-#define WLAN_PASS      ""
+#define WLAN_SSID "CampusVitoria"
+#define WLAN_PASS ""
 
 // Cria um WiFiClient class para utilizar no MQTT server.
 WiFiClientSecure client;
@@ -27,12 +27,12 @@ WiFiUDP ntpUDP;
 NTPClient ntp(ntpUDP);
 
 //Define informacoes MQTT
-#define SERVER      "dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud"
-#define SERVERPORT   8883 
-#define user        "Esp32"
-#define pass        "Digital10@"
+#define SERVER "dd6e8d1cc8524360a537e7db4e5924f8.s2.eu.hivemq.cloud"
+#define SERVERPORT 8883
+#define user "Esp32"
+#define pass "Digital10@"
 
-static const char *root_ca PROGMEM = R"EOF(
+static const char* root_ca PROGMEM = R"EOF(
 -----BEGIN CERTIFICATE-----
 MIIFazCCA1OgAwIBAgIRAIIQz7DSQONZRGPgu2OCiwAwDQYJKoZIhvcNAQELBQAw
 TzELMAkGA1UEBhMCVVMxKTAnBgNVBAoTIEludGVybmV0IFNlY3VyaXR5IFJlc2Vh
@@ -87,8 +87,8 @@ String getFormattedDate(NTPClient& ntp) {
 
   // Extract day, month, and year from the time structure
   int dayOfMonth = timeInfo.tm_mday;
-  int month = timeInfo.tm_mon + 1; // Month is 0-based, so we add 1
-  int year = timeInfo.tm_year + 1900; // Year is since 1900
+  int month = timeInfo.tm_mon + 1;     // Month is 0-based, so we add 1
+  int year = timeInfo.tm_year + 1900;  // Year is since 1900
 
   // Format the day and month to always have two digits
   String formattedDay = (dayOfMonth < 10) ? "0" + String(dayOfMonth) : String(dayOfMonth);
@@ -100,87 +100,86 @@ String getFormattedDate(NTPClient& ntp) {
   return formattedDate;
 }
 //Variaveis
-  int f = 3;                   // valor em hz
-  unsigned long time_ini;      // tempo em ms que comecou o segundo no timestamp
-  unsigned long refTime = 0;   // tempo de inicio do loop
-  bool ativar = true;          // indica se vai rodar a transmissao
-  /*int garraMin = 400;        //valor minimo de abertura da garra
+int f = 3;                  // valor em hz
+unsigned long time_ini;     // tempo em ms que comecou o segundo no timestamp
+unsigned long refTime = 0;  // tempo de inicio do loop
+bool ativar = true;         // indica se vai rodar a transmissao
+/*int garraMin = 400;        //valor minimo de abertura da garra
   int garraMax = 4095;         //valor maximo de abertura da garra
 */
 
 void setup() {
-  //Iniciando  
+  //Iniciando
   Serial.begin(19200);
-  
+
   Serial.println("Inicio");
-  
+
   /*pinMode(LED, OUTPUT);
   digitalWrite(LED, LOW);
   //wait(500,2);  
   */
-    //Declarando pinos de leitura dos pistoes
-    for(int i = 0; i<8; i++){
-      pinMode(sensores[i],INPUT_PULLUP);
-    }
-      pinMode(POT, INPUT);
-  
+  //Declarando pinos de leitura dos pistoes
+  for (int i = 0; i < 8; i++) {
+    pinMode(sensores[i], INPUT_PULLUP);
+  }
+  pinMode(POT, INPUT);
+
   // Conecta o Wifi na rede
-    Serial.println(); Serial.println();
-    Serial.print("Conectando em ");
-    Serial.println(WLAN_SSID);
+  Serial.println();
+  Serial.println();
+  Serial.print("Conectando em ");
+  Serial.println(WLAN_SSID);
 
-    WiFi.mode(WIFI_STA);
-    WiFi.begin(WLAN_SSID, WLAN_PASS);  
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(WLAN_SSID, WLAN_PASS);
 
-    while (WiFi.status() != WL_CONNECTED) {
-      delay(500);
-      Serial.print(".");
-    }
-    Serial.println();
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println();
 
-    Serial.println("WiFi connected");
-    Serial.print("IP address: "); 
-    Serial.println(WiFi.localIP());
+  Serial.println("WiFi connected");
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
 
   //Conecta servidor MQTT
-    client.setCACert(root_ca);
-    mqtt.setServer(SERVER, SERVERPORT);
-    reconnect();
-    delay(500);
-  
+  client.setCACert(root_ca);
+  mqtt.setServer(SERVER, SERVERPORT);
+  reconnect();
+  delay(500);
+
   //Inicia NTP para adquirir data e hora
-   ntp.begin();
-   ntp.setTimeOffset(-10800);//corrige para fuso horário     
+  ntp.begin();
+  ntp.setTimeOffset(-10800);  //corrige para fuso horário
 }
-String hora,date, epoch;
+String hora, date, epoch;
 String space = "%%";
 
 
 void loop() {
-  if( (millis() - refTime) > (1000/f) && ativar)  //Controle da taxa de leitura
+  if ((millis() - refTime) > (1000 / f) && ativar)  //Controle da taxa de leitura
   {
-    refTime = millis(); //Atualiza tempo de referencia
+    refTime = millis();  //Atualiza tempo de referencia
 
     //Criacao da mensagem
-      int valores[8];
-      hora = ntp.getFormattedTime();
-      epoch = ntp.getEpochTime();
-      String formattedDate = getFormattedDate(ntp);
-      String msg = "%%PISTAO%%";
-      String msg2 = "%%GARRA%%"; 
-      msg += hora + space + epoch + space + formattedDate + space;//pistoes
-      msg2 += hora + space + epoch + space + formattedDate + space; // timestamp
+    int valores[8];
+    hora = ntp.getFormattedTime();
+    epoch = ntp.getEpochTime();
+    String formattedDate = getFormattedDate(ntp);
+    String msg = "%%PISTAO%%";
+    String msg2 = "%%GARRA%%";
+    msg += hora + space + epoch + space + formattedDate + space;   //pistoes
+    msg2 += hora + space + epoch + space + formattedDate + space;  // timestamp
     //Adicionando leituras dos sensores dos pistoes
-    
-    for(int i = 0; i<8; i++)
-    {
-      valores[i] = digitalRead(sensores[i]); 
-      if( (i%2) == 0 ){
-        char pistao = 'A' + i/2;
+
+    for (int i = 0; i < 8; i++) {
+      valores[i] = digitalRead(sensores[i]);
+      if ((i % 2) == 0) {
+        char pistao = 'A' + i / 2;
         msg += pistao;
-      } 
+      }
       msg += valores[i];
-      
     }
     //Adicionando leitura da garra(potenciomentro)
     //float valor = (analogRead(POT) - garraMin) * 100 / (garraMax - garraMin);
@@ -208,35 +207,33 @@ void reconnect() {
     if (mqtt.connect(clientId.c_str(), user, pass)) {
       Serial.println("conectado");
 
-      mqtt.subscribe("topic", 0);   // inscricao no topico 'topic'
+      mqtt.subscribe("topic", 0);  // inscricao no topico 'topic'
     } else {
       Serial.print("falha, rc=");
       Serial.print(mqtt.state());
       Serial.println(" tentando novamente em 5 segundos");
-      wait(1000,5);
+      wait(1000, 5);
     }
   }
 }
 
-unsigned long millisZero()
-{
+unsigned long millisZero() {
   struct tm timeinfo;
   getLocalTime(&timeinfo);
   int time_old = timeinfo.tm_sec;
-  do{ 
-    getLocalTime(&timeinfo); 
-  }while(time_old == timeinfo.tm_sec);// rotina para descobrir quando acaba o segundo
-  
+  do {
+    getLocalTime(&timeinfo);
+  } while (time_old == timeinfo.tm_sec);  // rotina para descobrir quando acaba o segundo
+
   return millis();  //retorna o tempo em que o segundo começou
 }
 
-void wait(int ciclo, int num) //ciclo -> tempo do ciclo, num -> numero de repeticoes, LED -> porta led
-{  
-  for(int i = 0; i < num; i++)
-  {
+void wait(int ciclo, int num)  //ciclo -> tempo do ciclo, num -> numero de repeticoes, LED -> porta led
+{
+  for (int i = 0; i < num; i++) {
     //digitalWrite(LED, HIGH);
-    delay( int(ciclo/2) );
+    delay(int(ciclo / 2));
     //digitalWrite(LED, LOW);
-    delay( int(ciclo/2) );
+    delay(int(ciclo / 2));
   }
 }
