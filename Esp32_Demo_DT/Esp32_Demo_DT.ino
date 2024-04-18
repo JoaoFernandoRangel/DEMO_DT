@@ -169,8 +169,8 @@ void loop() {
     String formattedDate = getFormattedDate(ntp);
     String msg = "%%PISTAO%%";
     String msg2 = "%%GARRA%%";
-    msg += hora + space + epoch + space + formattedDate + space;   //pistoes
-    msg2 += hora + space + epoch + space + formattedDate + space;  // timestamp
+    msg += hora + space + epoch + space;
+    msg2 += hora + space + epoch + space;// + formattedDate + space;  // timestamp
     //Adicionando leituras dos sensores dos pistoes
 
     for (int i = 0; i < 8; i++) {

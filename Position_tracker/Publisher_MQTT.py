@@ -8,7 +8,7 @@ from paho import mqtt
 import ntplib as ntp
 
 pc = "jf" # Se no notebook de João usar jf
-teste = 1 #se estiver em teste manter 1
+teste = 21 #se estiver em teste manter 1
 link_comum = 'europe.pool.ntp.org'
 
 pot_enable = True
@@ -18,6 +18,7 @@ def on_connect(client, userdata, flags, rc, properties=None):
     #print("CONNACK received with code %s." % rc)
     # Subscribe to the "idle_rx" topic when connected
     client.subscribe("idle_rx", qos=1)
+
 def on_publish(client, userdata, mid, properties=None):
     print("publicado")
     #print("mid: " + str(mid))
@@ -66,15 +67,15 @@ class MyHandler(FileSystemEventHandler):
             else:
                 str_src = event.src_path.replace("C:\\Users\\Digital Twin\\Documents\\GitHub\\DEMO_DT\\Position_tracker\\Logs\\log%%","")
             str_0 = str(str_src)
-            print(str_0)
+            #print(str_0)
             str_1 = str_0.replace(".txt", "")           
-            str_2 = str_1.replace(",",".")            
+            str_2 = str_1.replace(".",",")            
             splited = str_2.split('%%')
-            epoch = pega_epoch()
+            epoch = 0# pega_epoch()
             str_final = str_2 + space + str(epoch)
             print(str_final)
             #str_pub = str_pub.replace("-", ":")
-            print(str_final)
+            #print(str_final)
             client.publish(topico, str_final, 1)
             self.pacote = event.src_path
 
@@ -118,7 +119,7 @@ if __name__ == "__main__":
         pasta_vigilancia = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs"
     else:
         pasta_vigilancia = "C:\\Users\\Digital Twin\\Documents\\GitHub\\DEMO_DT\\Position_tracker\\Logs"
-    client.publish(topico, "a", 1)
+    #client.publish(topico, "a", 1)
     vigiar_pasta(pasta_vigilancia)
     
 

@@ -4,8 +4,8 @@ from datetime import datetime
 import os
 import math
 
-rotina = 1 #mudar dependendo da rotina a ser executada
-pc = "jf1" #deixar igual a jf quando no notebook, mudar para outro valor quando no pc do 204
+rotina = 4 #mudar dependendo da rotina a ser executada
+pc = "jf" #deixar igual a jf quando no notebook, mudar para outro valor quando no pc do 204
 
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra
@@ -68,7 +68,7 @@ def update():
     print('Posição escrita no registro de atividades') 
     epoch = current_milli_time()   
     # Crie um novo arquivo com o nome baseado na string escrita e na hora de criação
-    novo_arquivo = diretorio + space + str(epoch) + space + timestamp1 + space+ string  + ".txt" #+ space +str(epoch)
+    novo_arquivo = diretorio + space + str(epoch) + space + timestamp1 + space+ string  + space + ".txt" #+ space +str(epoch)
     with open(novo_arquivo, "w+") as x:
         x.write(string_Print)
         print('Novo arquivo criado')
@@ -78,7 +78,7 @@ def update():
 
 
 
-ponto_esteira = [113.0719, -177.6358, 38.6852, -75.2771]
+ponto_esteira = [110.5752, -173.1466, 33.9814, -93.6851]
 home = [223.0752, 2.4736, 67.9859, 0]
 montagem = [287.5588 , 3.0321 , 38.6762 , 10.6513]
 montagemtampa = [287.0620 , 2.6663 , 56.7805 , 7.4995]
@@ -89,7 +89,8 @@ azul1 = [-81.6309 , -165.2486 , 24.5483 , -90]
 vermelha1 = [-14.8509 , -165.2496, 26.1557, -128.3200]
 insere = [286.3870 ,1.4466, 67.1643 , -11.7400]
 retirapronta = [286.3913 , 2.6706 , 34.3566 , -78.5320]
-ponto_descarte = [146.3089,-105.9902,41.5474,-81.4603] #ponto para soltar o copo fora da área de trabalho.
+#ponto_descarte = [146.3089,-105.9902,41.5474,-81.4603] #ponto para soltar o copo fora da área de trabalho.
+ponto_descarte = [286.3870 ,1.4466, 87.1643 , -11.7400] #ponto para soltar o copo fora da área de trabalho.
 #ponto_pega = [0,0,0,0]
 ponto_pega = montagem
 
@@ -272,19 +273,23 @@ def rotina3(vezes):
         time.sleep(3)
 
 def rotina4(vezes, ponto): #teste de captura de copo
+    global home
     print("Rotina 4")
     time.sleep(3)
+    dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1) #Home
+    abregarra()
+
     for i in range(vezes):
         if (ponto == "esteira"):
             pegaesteira()
-            time.sleep(10)
+            time.sleep(3)
             funcao_descarte()
-            time.sleep(10)
+            time.sleep(3)
         else:
             pega_ponto(ponto_pega)
-            time.sleep(10)
+            time.sleep(3)
             funcao_descarte()
-            time.sleep(10)
+            time.sleep(3)
             
 
 configura() #declara as funções para manipulação dos pistões
@@ -307,7 +312,7 @@ elif (rotina==3):
 elif (rotina==4):
 #rotina 4 = simulação de falha com o potênciometro
     print('rotina 4')
-    rotina4(5)
+    rotina4(5, "esteira")
 
 
 log.close()
