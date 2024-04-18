@@ -4,8 +4,10 @@ from datetime import datetime
 import os
 import math
 
+
 rotina = 4 #mudar dependendo da rotina a ser executada
 pc = "jf" #deixar igual a jf quando no notebook, mudar para outro valor quando no pc do 204
+
 
 #rotina 1 = mover o robo com a mão e fazer a Unity copiar
 #rotina 2 = rotina pré programada de movimentação com abertura e fechamento de garra

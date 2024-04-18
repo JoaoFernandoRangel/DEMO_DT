@@ -8,7 +8,7 @@ from paho import mqtt
 import ntplib as ntp
 
 pc = "jf" # Se no notebook de João usar jf
-teste = 21 #se estiver em teste manter 1
+teste = 1 #se estiver em teste manter 1
 link_comum = 'europe.pool.ntp.org'
 
 pot_enable = True
@@ -46,7 +46,8 @@ if (teste==1):
 else:
     topico = "xyzr"
 space = "%%"
-
+ponto = "."
+virgula = ","
 def pega_epoch():
     response = client_ntp.request(link_comum, version = 3)
     return int(response.tx_time*1000)
@@ -69,7 +70,7 @@ class MyHandler(FileSystemEventHandler):
             str_0 = str(str_src)
             #print(str_0)
             str_1 = str_0.replace(".txt", "")           
-            str_2 = str_1.replace(".",",")            
+            str_2 = str_1.replace(",",".")            
             splited = str_2.split('%%')
             epoch = 0# pega_epoch()
             str_final = str_2 + space + str(epoch)
