@@ -79,7 +79,7 @@ def update():
     time.sleep(0.5)
 
 
-
+jump_param = 50 # altura para movimento tipo jump
 ponto_esteira = [110.5752, -173.1466, 33.9814, -93.6851]
 home = [223.0752, 2.4736, 67.9859, 0]
 montagem = [287.5588 , 3.0321 , 38.6762 , 10.6513]
@@ -98,24 +98,38 @@ ponto_pega = montagem
 
 def funcao_descarte():
     update()
+    #Adicionar pontos intermediários
     dType.SetPTPCmdEx(api,0,(ponto_descarte[0]),(ponto_descarte[1]),(ponto_descarte[2]),(ponto_descarte[3]),1)
+    jump(ponto_descarte)
     update()
     abregarra()
     update()
-    
+
+def jump(ponto):
+    global jump_param
+    pose_atual = dType.getPose(api)
+    update()
+    dType.SetPTPCmdEx(api, 1, (pose_atual[0]), (pose_atual[1]), jump_param, (pose_atual[3]), 1)
+    update()
+    dType.SetPTPCmdEx(api, 1, (ponto[0]), (ponto[1]), jump_param, (ponto[3]), 1)
+    update()
+    dType.SetPTPCmdEx(api, 1, (ponto[0]), (ponto[1]), (ponto[2]), (ponto[3]), 1)
+    update()
+
 def pega_ponto(ponto):
-	update()
-	dType.SetPTPCmdEx(api,0,(ponto[0]),(ponto[1]),(ponto[2] + aprox),(ponto[3]),1)
-	update()
-	dType.SetPTPCommonParamsEx(api,5,5,1)
-	update()
-	dType.SetPTPCmdEx(api,1,(ponto[0]),(ponto[1]),(ponto[2]),(ponto[3]),1)
-	update()
-	#dType.SetPTPCommonParams(api, velocityRatio, accelerationRatio, isQueued=0)
-	fechagarra()
-	update()
-	dType.SetPTPCmdEx(api,1,(ponto[0]),(ponto[1]),(ponto[2] + aprox),(ponto[3]),1)
-	update()
+    update()
+    dType.SetPTPCmdEx(api, 0, (ponto[0]), (ponto[1]), (ponto[2] + aprox), (ponto[3]), 1)
+    update()
+    dType.SetPTPCommonParamsEx(api, 5, 5, 1)
+    update()
+    dType.SetPTPCmdEx(api, 1, (ponto[0]), (ponto[1]), (ponto[2]), (ponto[3]), 1)
+    update()
+    dType.SetPTPCommonParams(api, velocityRatio, accelerationRatio, isQueued=0)
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api, 1, (ponto[0]), (ponto[1]), (ponto[2] + aprox), (ponto[3]), 1)
+    update()
+
 
 def pegaesteira():
 	update()
