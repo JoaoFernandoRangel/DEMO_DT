@@ -99,13 +99,13 @@ ponto_pega = montagem
 def funcao_descarte():
     update()
     #Adicionar pontos intermediários
-    dType.SetPTPCmdEx(api,0,(ponto_descarte[0]),(ponto_descarte[1]),(ponto_descarte[2]),(ponto_descarte[3]),1)
-    jump(ponto_descarte)
+    #dType.SetPTPCmdEx(api,0,(ponto_descarte[0]),(ponto_descarte[1]),(ponto_descarte[2]),(ponto_descarte[3]),1)
+    jump(ponto_descarte) 
     update()
     abregarra()
     update()
 
-def jump(ponto):
+def jump(ponto): #função que substitui o modo jump.
     global jump_param
     pose_atual = dType.getPose(api)
     update()
@@ -118,13 +118,14 @@ def jump(ponto):
 
 def pega_ponto(ponto):
     update()
-    dType.SetPTPCmdEx(api, 0, (ponto[0]), (ponto[1]), (ponto[2] + aprox), (ponto[3]), 1)
+    #dType.SetPTPCmdEx(api, 0, (ponto[0]), (ponto[1]), (ponto[2] + aprox), (ponto[3]), 1)
+    jump(ponto)
     update()
     dType.SetPTPCommonParamsEx(api, 5, 5, 1)
     update()
     dType.SetPTPCmdEx(api, 1, (ponto[0]), (ponto[1]), (ponto[2]), (ponto[3]), 1)
     update()
-    dType.SetPTPCommonParams(api, velocityRatio, accelerationRatio, isQueued=0)
+    #dType.SetPTPCommonParams(api, velocityRatio, accelerationRatio, isQueued=0)
     fechagarra()
     update()
     dType.SetPTPCmdEx(api, 1, (ponto[0]), (ponto[1]), (ponto[2] + aprox), (ponto[3]), 1)
@@ -132,18 +133,19 @@ def pega_ponto(ponto):
 
 
 def pegaesteira():
-	update()
-	dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
-	update()
-	dType.SetPTPCommonParamsEx(api,5,5,1)
-	update()
-	dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
-	update()
-	#dType.SetPTPCommonParams(api, velocityRatio, accelerationRatio, isQueued=0)
-	fechagarra()
-	update()
-	dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
-	update()
+    update()
+    #dType.SetPTPCmdEx(api,0,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+    jump(ponto_esteira)
+    update()
+    dType.SetPTPCommonParamsEx(api,5,5,1)
+    update()
+    dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2]),(ponto_esteira[3]),1)
+    update()
+    #dType.SetPTPCommonParams(api, velocityRatio, accelerationRatio, isQueued=0)
+    fechagarra()
+    update()
+    dType.SetPTPCmdEx(api,1,(ponto_esteira[0]),(ponto_esteira[1]),(ponto_esteira[2] + aprox),(ponto_esteira[3]),1)
+    update()
 
 def abregarra():
     global string_garra
