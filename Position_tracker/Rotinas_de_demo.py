@@ -107,7 +107,7 @@ def funcao_descarte():
 
 def jump(ponto): #função que substitui o modo jump.
     global jump_param
-    pose_atual = dType.getPose(api)
+    pose_atual = dType.GetPose(api)
     update()
     dType.SetPTPCmdEx(api, 1, (pose_atual[0]), (pose_atual[1]), jump_param, (pose_atual[3]), 1)
     update()
