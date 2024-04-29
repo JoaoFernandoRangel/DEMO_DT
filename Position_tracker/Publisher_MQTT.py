@@ -11,14 +11,14 @@ pc = "jf" # Se no notebook de João usar jf
 teste = 1 #se estiver em teste manter 1
 link_comum = 'europe.pool.ntp.org'
 
-pot_enable = True
+epoch_enable = False
+
 
 #Funções para conexão em broker MQTT
 def on_connect(client, userdata, flags, rc, properties=None):
     #print("CONNACK received with code %s." % rc)
     # Subscribe to the "idle_rx" topic when connected
     client.subscribe("idle_rx", qos=1)
-
 def on_publish(client, userdata, mid, properties=None):
     print("publicado")
     #print("mid: " + str(mid))
@@ -48,10 +48,14 @@ else:
 space = "%%"
 ponto = "."
 virgula = ","
-def pega_epoch():
-    response = client_ntp.request(link_comum, version = 3)
-    return int(response.tx_time*1000)
 
+def pega_epoch(able):
+    if able == True:
+        response = client_ntp.request(link_comum, version = 3)
+        return int(response.tx_time*1000)
+    else:
+        return 0
+    
 class MyHandler(FileSystemEventHandler):
     def __init__(self, folder):
         self.folder = folder
@@ -72,7 +76,7 @@ class MyHandler(FileSystemEventHandler):
             str_1 = str_0.replace(".txt", "")           
             str_2 = str_1.replace(",",".")            
             splited = str_2.split('%%')
-            epoch = 0# pega_epoch()
+            epoch = pega_epoch(epoch_enable)
             str_final = str_2 + space + str(epoch)
             print(str_final)
             #str_pub = str_pub.replace("-", ":")

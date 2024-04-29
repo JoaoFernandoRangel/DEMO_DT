@@ -1,10 +1,14 @@
 import time
 from time import sleep
 from datetime import datetime
-import pydobot
+
 
 pc = "jf" #mudar para algum outro valor quando for usar o pc do lab
 space = "%%"
+i = 1 # Escreva aqui para definir o número da peça a ser executado.
+jump_param = 70 #Altura do pulo
+
+
 
 if (pc=="jf"):
     diretorio = "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Position_tracker\\Logs\\log"
@@ -44,7 +48,7 @@ montagem = [283.6386 ,2.3481 , 40.2573 , 0]
 montagemtampa = [282.6386, 2.3481, 58.2095, 0]
 insere = [284.9474, 0, 67.6, 2.34]
 retirapronta = [283.9509, 2.5633, 33.5151, 0]
-jump_param = 70 #Altura do pulo
+
 
 Tampa = [[183.6411 ,24.0021 , 23.5616 , 0],[183.6411 ,23.0042 , 23.5616 , 0],[183.6411 ,-21.4659, 23.5616 , 0],
          [183.6411 ,-67.1619, 23.5616 , 0],[232.0508 ,-66.8023, 23.5616 , 0],[232.0508 ,-21.1304, 23.5616 , 0],
@@ -324,18 +328,20 @@ abregarra()
 
 dType.SetPTPCommonParamsEx(api,50,50,1)
 dType.SetPTPCmdEx(api,1,(home[0]),(home[1]),(home[2] + aprox),(home[3]),1)
+
+
+
 #########começo do programa	######
 
-for i in range(1,8):
-     alimenta()
-     transporta()
-     pegaesteira()
-     colocamontagem()
-     pegaazul(i)
-     pegavermelha(i)
-     pegatampa(i)
-     montatampa()
-     Guarda(i)
+alimenta()
+transporta()
+pegaesteira()
+colocamontagem()
+pegaazul(i)
+pegavermelha(i)
+pegatampa(i)
+montatampa()
+Guarda(i)
 
 
 dType.SetPTPCmdEx(api,1,(home[0]),(home[1]),(home[2] + aprox),(home[3]),1)
