@@ -119,16 +119,17 @@ def jump(ponto): #função que substitui o modo jump.
 def pega_ponto(ponto):
     update()
     #dType.SetPTPCmdEx(api, 0, (ponto[0]), (ponto[1]), (ponto[2] + aprox), (ponto[3]), 1)
-    jump(ponto)
+    jump(ponto) # função própria de movimentação tipo jump
     update()
-    dType.SetPTPCommonParamsEx(api, 5, 5, 1)
+    dType.SetPTPCommonParamsEx(api, 5, 5, 1) # altera os parametros de vel e aceleração
     update()
-    dType.SetPTPCmdEx(api, 1, (ponto[0]), (ponto[1]), (ponto[2]), (ponto[3]), 1)
+    abregarra()
+    dType.SetPTPCmdEx(api, 1, (ponto[0]), (ponto[1]), (ponto[2]), (ponto[3]), 1) # vai até o ponto fornecido
     update()
     #dType.SetPTPCommonParams(api, velocityRatio, accelerationRatio, isQueued=0)
     fechagarra()
     update()
-    dType.SetPTPCmdEx(api, 1, (ponto[0]), (ponto[1]), (ponto[2] + aprox), (ponto[3]), 1)
+    dType.SetPTPCmdEx(api, 1, (ponto[0]), (ponto[1]), (ponto[2] + aprox), (ponto[3]), 1) # sobre um valor fixo do ponto fornecido
     update()
 
 
