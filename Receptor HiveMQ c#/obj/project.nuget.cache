@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Q4rS4v9P0R1NgFhDXJuaL6VSL1yRBxnwx75qOZoCS3jmk5bRTmc/R6IqmNCdBy7LW8NdD4+SDAnGPW0mXscBkw==",
+  "dgSpecHash": "vTM+pAmwdU0HzJqa2b9CP3W4gwKHlb5ckmyscy7kHfDO9DaXwcRcQgcU3BiIptL6MUJyak43/tnZcGljiAwRRw==",
   "success": true,
   "projectFilePath": "C:\\Users\\João Fernando Rangel\\Desktop\\Digital Twin\\DEMO_DT\\Receptor HiveMQ c#\\Receptor_4.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\João Fernando Rangel\\.nuget\\packages\\m2mqtt\\4.3.0\\m2mqtt.4.3.0.nupkg.sha512"
+    "C:\\Users\\João Fernando Rangel\\.nuget\\packages\\m2mqtt\\4.3.0\\m2mqtt.4.3.0.nupkg.sha512",
+    "C:\\Users\\João Fernando Rangel\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
   ],
   "logs": [
     {

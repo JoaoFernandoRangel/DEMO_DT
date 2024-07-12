@@ -1,7 +1,7 @@
 import time
 from time import sleep
 from datetime import datetime
-import pydobot
+
 
 pc = "jf" #mudar para algum outro valor quando for usar o pc do lab
 space = "%%"
@@ -194,7 +194,8 @@ def pegaesteira():
 def colocamontagem():
     dType.SetPTPCommonParamsEx(api,50,50,1)
     update()
-    dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
+    jump(montagem)
+    #dType.SetPTPCmdEx(api,0,(montagem[0]),(montagem[1]),(montagem[2] + aprox),(montagem[3]),1)
     update()
     dType.SetPTPCommonParamsEx(api,5,5,1)
     update()
@@ -287,7 +288,7 @@ def pegaazul(numero):
     dType.SetPTPCmdEx(api,1,home[0],home[1],home[2],home[3],1)
     update()
     dType.SetPTPCommonParamsEx(api,5,5,1)
-    #função jump
+    jump(insere)
     dType.SetPTPCmdEx(api,0,(insere[0]),(insere[1]),(insere[2] ),insere[3],1)
     update()
     abregarra()

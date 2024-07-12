@@ -2,7 +2,6 @@ import paho.mqtt.client as paho
 from paho import mqtt
 import time
 
-
 def on_connect(client, userdata, flags, rc, properties=None):
     #print("CONNACK received with code %s." % rc)
     # Subscribe to the "idle_rx" topic when connected
@@ -32,6 +31,7 @@ client.loop_start()
 topico = "teste"
 mensagem_envio = "mensagem_teste "
 
-for i in range(3):
+for i in range(30):
     client.publish(topico, mensagem_envio  +str(i), 0)
-    time.sleep(2.5)
+    print("Mensagem enviada: " + mensagem_envio + str(i))
+    time.sleep(1)

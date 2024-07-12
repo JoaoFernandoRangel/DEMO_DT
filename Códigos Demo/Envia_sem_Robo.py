@@ -70,9 +70,7 @@ def faz_string(ponto):
     timestamp1 = data_hora_atual.strftime(formato_data_hora)
     string = str(round(ponto[0], 3)) + space + str(round(ponto[1], 3)) + space + str(
         round(ponto[2], 3)) + space + str(round(ponto[3], 3)) + space + string_garra
-    
     string =  str(epoch) + space + timestamp1 + space + string + space + str(epoch + random.randint(1,200))
-    
     return string
 
 #print(faz_string(ponto_esteira))
